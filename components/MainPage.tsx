@@ -15,12 +15,10 @@ import {
   MapPin,
   Menu,
   MessageCircle,
-  Moon,
   Phone,
   Send,
   Sparkles,
   Star,
-  Sun,
   Users,
   X,
 } from 'lucide-react';
@@ -52,7 +50,6 @@ const highlights = [
 
 export function MainPage() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [activeSpaceId, setActiveSpaceId] = useState(spaces[0]?.id ?? '');
   const [activeEvent, setActiveEvent] = useState(eventTypes[0]);
   const [activeGallery, setActiveGallery] = useState(0);
@@ -74,12 +71,6 @@ export function MainPage() {
     `Hola, quiero consultar disponibilidad para ${activeEvent} en Finca Carranza Sosa.`,
   )}`;
 
-  const toggleTheme = () => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(nextTheme);
-    document.documentElement.classList.toggle('dark', nextTheme === 'dark');
-  };
-
   const updateForm = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
   ) => {
@@ -88,7 +79,7 @@ export function MainPage() {
   };
 
   return (
-    <div className={`min-h-screen overflow-x-hidden font-sans ${theme === 'dark' ? 'bg-[#0b1020] text-white' : 'bg-[#f6f7fb] text-[#111827]'}`}>
+    <div className="min-h-screen overflow-x-hidden bg-[#f6f7fb] font-sans text-[#111827]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0b1020]/84 text-white backdrop-blur-2xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="#inicio" className="flex items-center gap-3">
@@ -105,9 +96,6 @@ export function MainPage() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <button type="button" onClick={toggleTheme} className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/8" aria-label="Cambiar tema">
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
             <a href="#reservar" className="hidden rounded-full bg-cyan-300 px-5 py-2.5 text-sm font-black text-slate-950 transition hover:bg-rose-300 sm:inline-flex">
               Reservar
             </a>
