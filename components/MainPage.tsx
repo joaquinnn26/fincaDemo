@@ -206,20 +206,20 @@ export function MainPage() {
               </div>
             </div>
 
-            <form className="grid gap-5 rounded-[2rem] border border-slate-900/10 bg-slate-950 p-5 text-white shadow-2xl shadow-cyan-950/15 sm:grid-cols-2 sm:p-6">
+            <form className="grid gap-5 rounded-[2rem] border border-slate-200 bg-white p-5 text-slate-950 shadow-2xl shadow-cyan-950/10 sm:grid-cols-2 sm:p-6">
               <div className="sm:col-span-2">
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">Datos de consulta</p>
+                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-700">Datos de consulta</p>
                 <h3 className="mt-2 text-2xl font-black tracking-tight">Te respondemos con una propuesta inicial.</h3>
               </div>
-              <label className="text-sm font-bold text-white/72">
+              <label className="text-sm font-black text-slate-700">
                 Nombre
                 <input name="name" value={form.name} onChange={updateForm} className="form-field mt-2" placeholder="Ej: Ana" />
               </label>
-              <label className="text-sm font-bold text-white/72">
+              <label className="text-sm font-black text-slate-700">
                 Telefono
                 <input name="phone" value={form.phone} onChange={updateForm} className="form-field mt-2" placeholder="+54..." />
               </label>
-              <label className="text-sm font-bold text-white/72">
+              <label className="text-sm font-black text-slate-700">
                 Fecha ideal
                 <select name="date" value={form.date} onChange={updateForm} className="form-field mt-2">
                 {availability.map((slot) => (
@@ -227,11 +227,11 @@ export function MainPage() {
                 ))}
                 </select>
               </label>
-              <label className="text-sm font-bold text-white/72">
+              <label className="text-sm font-black text-slate-700">
                 Invitados
                 <input name="guests" value={form.guests} onChange={updateForm} className="form-field mt-2" placeholder="120" />
               </label>
-              <label className="text-sm font-bold text-white/72 sm:col-span-2">
+              <label className="text-sm font-black text-slate-700 sm:col-span-2">
                 Mensaje
                 <textarea name="message" value={form.message} onChange={updateForm} className="form-field mt-2 min-h-28 resize-none" placeholder="Contanos fecha, tipo de evento o dudas principales" />
               </label>
@@ -239,7 +239,7 @@ export function MainPage() {
                 <a href={whatsappLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-black text-slate-950 transition hover:bg-rose-300">
                   WhatsApp <MessageCircle size={18} />
                 </a>
-                <a href={`mailto:${siteConfig.email}`} className="inline-flex items-center gap-2 rounded-full border border-white/14 px-6 py-3 text-sm font-black text-white">
+                <a href={`mailto:${siteConfig.email}`} className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-6 py-3 text-sm font-black text-slate-950">
                   Email <Send size={18} />
                 </a>
               </div>
