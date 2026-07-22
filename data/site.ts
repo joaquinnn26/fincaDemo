@@ -6,8 +6,8 @@ export const siteConfig = {
   phone: '+34 650 123 456',
   whatsapp: '+34650123456',
   email: 'hola@fincacarranzasosa.com',
-  address: 'Camino de la Sierra, 14, 29750 Estepona, Málaga',
-  coordinates: { lat: 36.42, lng: -5.14 },
+  address: 'Ruta Provincial 6, Km 88, Lujan, Buenos Aires, Argentina',
+  coordinates: { lat: -34.5632, lng: -59.1209 },
   social: {
     instagram: 'https://instagram.com',
     facebook: 'https://facebook.com',

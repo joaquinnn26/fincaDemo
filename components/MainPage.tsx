@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
-  CalendarDays,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -17,7 +16,6 @@ import {
   MessageCircle,
   Phone,
   Send,
-  Sparkles,
   Star,
   Users,
   X,
@@ -73,6 +71,7 @@ export function MainPage() {
   const whatsappLink = `https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
     `Hola, quiero consultar disponibilidad para ${activeEvent} en Finca Carranza Sosa.`,
   )}`;
+  const mapEmbedUrl = `https://www.google.com/maps?q=${siteConfig.coordinates.lat},${siteConfig.coordinates.lng}&z=14&output=embed`;
 
   const updateForm = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -120,46 +119,29 @@ export function MainPage() {
       </header>
 
       <main id="inicio">
-        <section className="relative bg-[#0b1020] pt-24 text-white lg:min-h-screen">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,.24),transparent_34%),radial-gradient(circle_at_82%_12%,rgba(251,113,133,.20),transparent_30%),linear-gradient(180deg,rgba(11,16,32,.1),rgba(11,16,32,.82))]" />
-          <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-4 pb-8 sm:px-6 sm:pb-10 lg:min-h-[calc(100vh-6rem)] lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 lg:px-8">
-            <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-2 text-xs font-semibold text-white/74 backdrop-blur sm:px-4 sm:text-sm">
-                <Sparkles size={16} className="text-cyan-300" /> Finca premium para eventos
-              </p>
-              <h1 className="mt-5 max-w-3xl text-4xl font-black leading-[0.96] tracking-tight sm:mt-6 sm:text-6xl lg:text-8xl">
-                Tu evento, armado en minutos.
-              </h1>
-              <p className="mt-5 max-w-xl text-base leading-7 text-white/70 sm:mt-6 sm:text-lg sm:leading-8">
-                Elegi fecha, formato y espacio sin navegar de mas. Una experiencia moderna para cotizar y reservar la finca.
-              </p>
-              <div className="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap">
-                <a href="#reservar" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-black text-slate-950 transition hover:bg-rose-300 sm:w-auto">
-                  Consultar disponibilidad <ArrowRight size={18} />
-                </a>
-                <a href="#galeria" className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/14 bg-white/8 px-6 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/14 sm:w-auto">
-                  Ver imagenes
-                </a>
-              </div>
-            </div>
+        <section className="relative isolate overflow-hidden bg-[#0b1020] pt-16 text-white">
+          <div className="absolute inset-0">
+            <Image src={withBasePath('/images/real-villa.jpg')} alt="Vista principal de Finca Carranza Sosa" fill priority className="object-cover" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,16,32,.68),rgba(11,16,32,.44)_42%,rgba(11,16,32,.96)),linear-gradient(90deg,rgba(11,16,32,.84),rgba(11,16,32,.28)_58%,rgba(11,16,32,.72))]" />
+          </div>
 
-            <div className="grid h-[430px] grid-cols-4 grid-rows-5 gap-2 sm:h-[560px] sm:grid-cols-6 sm:grid-rows-6 sm:gap-3 lg:h-[680px]">
-              <div className="relative col-span-4 row-span-3 overflow-hidden rounded-3xl sm:row-span-4 sm:rounded-[2rem]">
-                <Image src={withBasePath('/images/real-villa.jpg')} alt="Entrada principal de la finca" fill priority className="object-cover" />
-              </div>
-              <div className="relative col-span-2 row-span-1 overflow-hidden rounded-3xl sm:row-span-3 sm:rounded-[2rem]">
-                <Image src={withBasePath('/images/real-pool.jpg')} alt="Piscina de la finca" fill className="object-cover" />
-              </div>
-              <div className="relative col-span-2 row-span-1 overflow-hidden rounded-3xl sm:row-span-3 sm:rounded-[2rem]">
-                <Image src={withBasePath('/images/real-reception.jpg')} alt="Salon principal" fill className="object-cover" />
-              </div>
-              <div className="relative hidden overflow-hidden rounded-[2rem] sm:col-span-2 sm:row-span-2 sm:block">
-                <Image src={withBasePath('/images/real-couple.jpg')} alt="Ceremonia en la finca" fill className="object-cover" />
-              </div>
-              <div className="col-span-4 row-span-1 rounded-3xl border border-white/10 bg-white/10 p-4 backdrop-blur sm:col-span-2 sm:row-span-2 sm:rounded-[2rem] sm:p-5">
-                <p className="text-sm font-semibold text-cyan-300">Disponible</p>
-                <p className="mt-1 text-2xl font-black sm:mt-2 sm:text-3xl">{availability[0]?.date}</p>
-                <p className="mt-1 text-sm text-white/66 sm:mt-2">Primera fecha para consulta rapida.</p>
+          <div className="relative z-10 mx-auto flex min-h-[560px] max-w-7xl flex-col items-center justify-center px-4 pb-10 pt-24 text-center sm:min-h-[700px] sm:px-6 lg:min-h-screen lg:px-8">
+            <div className="max-w-3xl">
+              <h1 className="mx-auto max-w-3xl text-[clamp(2.75rem,13vw,4.6rem)] font-black leading-[0.92] tracking-tight sm:text-6xl lg:text-8xl">
+                <span className="block">Finca</span>
+                <span className="block text-cyan-200">Carranza Sosa</span>
+              </h1>
+              <p className="mx-auto mt-7 max-w-xl text-lg font-black leading-snug text-cyan-200 sm:mt-9 sm:text-2xl">
+                Naturaleza, salon y piscina para celebrar con todo resuelto.
+              </p>
+              <div className="mx-auto mt-8 grid max-w-xl gap-3 sm:mt-10 sm:flex sm:items-center sm:justify-center">
+                <a href="#reservar" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3.5 text-sm font-black text-slate-950 shadow-xl shadow-cyan-950/30 transition hover:bg-rose-300 sm:w-auto">
+                  Solicitar reserva <ArrowRight size={18} />
+                </a>
+                <div className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/16 bg-white/12 px-5 py-3.5 text-sm font-black text-white backdrop-blur-md sm:w-auto">
+                  <MapPin size={18} className="text-cyan-200" />
+                  <span>{siteConfig.address}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -428,6 +410,16 @@ export function MainPage() {
                   <ContactLine icon={<Mail size={18} />} label="Email" value={siteConfig.email} />
                   <ContactLine icon={<MapPin size={18} />} label="Ubicacion" value={siteConfig.address} />
                   <ContactLine icon={<Clock3 size={18} />} label="Horario" value={siteConfig.hours} />
+                </div>
+
+                <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/6">
+                  <iframe
+                    title="Ubicacion de Finca Carranza Sosa en Google Maps"
+                    src={mapEmbedUrl}
+                    className="h-72 w-full border-0 sm:h-80"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
 
                 <div className="divide-y divide-white/10">
