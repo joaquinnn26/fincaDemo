@@ -48,6 +48,9 @@ const highlights = [
   { value: '4.9', label: 'rating' },
 ];
 
+const siteBasePath = process.env.NEXT_PUBLIC_GITHUB_PAGES === 'true' ? '/fincaDemo' : '';
+const withBasePath = (src: string) => src.startsWith('/images/') ? `${siteBasePath}${src}` : src;
+
 export function MainPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSpaceId, setActiveSpaceId] = useState(spaces[0]?.id ?? '');
@@ -142,16 +145,16 @@ export function MainPage() {
 
             <div className="grid h-[680px] grid-cols-6 grid-rows-6 gap-3">
               <div className="relative col-span-4 row-span-4 overflow-hidden rounded-[2rem]">
-                <Image src="/images/real-villa.jpg" alt="Entrada principal de la finca" fill priority className="object-cover" />
+                <Image src={withBasePath('/images/real-villa.jpg')} alt="Entrada principal de la finca" fill priority className="object-cover" />
               </div>
               <div className="relative col-span-2 row-span-3 overflow-hidden rounded-[2rem]">
-                <Image src="/images/real-pool.jpg" alt="Piscina de la finca" fill className="object-cover" />
+                <Image src={withBasePath('/images/real-pool.jpg')} alt="Piscina de la finca" fill className="object-cover" />
               </div>
               <div className="relative col-span-2 row-span-3 overflow-hidden rounded-[2rem]">
-                <Image src="/images/real-reception.jpg" alt="Salon principal" fill className="object-cover" />
+                <Image src={withBasePath('/images/real-reception.jpg')} alt="Salon principal" fill className="object-cover" />
               </div>
               <div className="relative col-span-2 row-span-2 overflow-hidden rounded-[2rem]">
-                <Image src="/images/real-couple.jpg" alt="Ceremonia en la finca" fill className="object-cover" />
+                <Image src={withBasePath('/images/real-couple.jpg')} alt="Ceremonia en la finca" fill className="object-cover" />
               </div>
               <div className="col-span-2 row-span-2 rounded-[2rem] border border-white/10 bg-white/10 p-5 backdrop-blur">
                 <p className="text-sm font-semibold text-cyan-300">Disponible</p>
@@ -255,7 +258,7 @@ export function MainPage() {
                     className={`group grid grid-cols-[92px_1fr] items-center gap-4 rounded-3xl border p-3 text-left transition ${activeSpaceId === space.id ? 'border-cyan-700 bg-white shadow-lg shadow-black/5 dark:border-cyan-300 dark:bg-white/10' : 'border-black/5 bg-white/50 hover:bg-white dark:border-white/10 dark:bg-white/6'}`}
                   >
                     <span className="relative h-24 overflow-hidden rounded-2xl">
-                      <Image src={space.image} alt={space.name} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                      <Image src={withBasePath(space.image)} alt={space.name} fill className="object-cover transition duration-500 group-hover:scale-105" />
                     </span>
                     <span>
                       <span className="block text-xs font-black uppercase tracking-[0.16em] text-current/42">{space.category}</span>
@@ -269,7 +272,7 @@ export function MainPage() {
               {activeSpace ? (
                 <article className="overflow-hidden rounded-[2rem] bg-[#111827] text-white shadow-2xl shadow-black/10">
                   <div className="relative h-[500px]">
-                    <Image src={activeSpace.image} alt={activeSpace.name} fill className="object-cover" />
+                    <Image src={withBasePath(activeSpace.image)} alt={activeSpace.name} fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/8 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                       <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">{activeSpace.category}</p>
@@ -303,7 +306,7 @@ export function MainPage() {
             {experiences.map((experience) => (
               <article key={experience.id} className="group overflow-hidden rounded-[2rem] bg-white shadow-lg shadow-black/5 dark:bg-white/6">
                 <div className="relative h-72">
-                  <Image src={experience.image} alt={experience.title} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                  <Image src={withBasePath(experience.image)} alt={experience.title} fill className="object-cover transition duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-black tracking-tight">{experience.title}</h3>
@@ -333,7 +336,7 @@ export function MainPage() {
 
             <div className="mt-10 grid gap-4 lg:grid-cols-[1.35fr_0.65fr]">
               <button type="button" onClick={() => setLightboxOpen(true)} className="group relative min-h-[620px] overflow-hidden rounded-[2rem] text-left">
-                <Image src={galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg'} alt={galleryItems[activeGallery]?.title ?? 'Galeria'} fill className="object-cover transition duration-700 group-hover:scale-105" />
+                <Image src={withBasePath(galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg')} alt={galleryItems[activeGallery]?.title ?? 'Galeria'} fill className="object-cover transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-7">
                   <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">{galleryItems[activeGallery]?.category}</p>
@@ -345,7 +348,7 @@ export function MainPage() {
               <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
                 {galleryItems.slice(0, 4).map((item, index) => (
                   <button key={item.src} type="button" onClick={() => setActiveGallery(index)} className={`relative min-h-36 overflow-hidden rounded-3xl border text-left ${activeGallery === index ? 'border-cyan-300' : 'border-white/10'}`}>
-                    <Image src={item.src} alt={item.title} fill className="object-cover" />
+                    <Image src={withBasePath(item.src)} alt={item.title} fill className="object-cover" />
                     <div className="absolute inset-0 bg-black/34" />
                     <p className="absolute bottom-3 left-3 right-3 text-sm font-black">{item.title}</p>
                   </button>
@@ -365,7 +368,7 @@ export function MainPage() {
               {eventCases.map((eventCase) => (
                 <article key={eventCase.title} className="overflow-hidden rounded-[2rem] bg-white shadow-lg shadow-black/5 dark:bg-white/6">
                   <div className="relative h-44">
-                    <Image src={eventCase.image} alt={eventCase.title} fill className="object-cover" />
+                    <Image src={withBasePath(eventCase.image)} alt={eventCase.title} fill className="object-cover" />
                   </div>
                   <div className="p-5">
                     <p className="text-xs font-black uppercase tracking-[0.16em] text-current/42">{eventCase.type}</p>
@@ -410,7 +413,7 @@ export function MainPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
               <div className="relative min-h-[620px] overflow-hidden rounded-[2rem]">
-                <Image src="/images/real-reception.jpg" alt="Terraza de la finca" fill className="object-cover" />
+                <Image src={withBasePath('/images/real-reception.jpg')} alt="Terraza de la finca" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-7">
                   <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">Contacto</p>
@@ -483,7 +486,7 @@ export function MainPage() {
               </button>
             </div>
             <div className="relative h-[76vh] overflow-hidden rounded-[2rem] bg-white/5">
-              <Image src={galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg'} alt={galleryItems[activeGallery]?.title ?? ''} fill className="object-cover" />
+              <Image src={withBasePath(galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg')} alt={galleryItems[activeGallery]?.title ?? ''} fill className="object-cover" />
             </div>
           </div>
         </div>
