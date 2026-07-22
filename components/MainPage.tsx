@@ -85,9 +85,9 @@ export function MainPage() {
     <div className="min-h-screen overflow-x-hidden bg-[#f6f7fb] font-sans text-[#111827]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0b1020]/84 text-white backdrop-blur-2xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link href="#inicio" className="flex items-center gap-3">
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-cyan-300 text-sm font-black text-slate-950">FE</span>
-            <span className="text-base font-extrabold tracking-tight sm:text-lg">{siteConfig.name}</span>
+          <Link href="#inicio" className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-cyan-300 text-xs font-black text-slate-950 sm:h-10 sm:w-10 sm:text-sm">FE</span>
+            <span className="truncate text-sm font-extrabold tracking-tight sm:text-lg">{siteConfig.name}</span>
           </Link>
 
           <nav className="hidden rounded-full border border-white/10 bg-white/8 p-1 lg:flex">
@@ -120,46 +120,46 @@ export function MainPage() {
       </header>
 
       <main id="inicio">
-        <section className="relative min-h-screen bg-[#0b1020] pt-24 text-white">
+        <section className="relative bg-[#0b1020] pt-24 text-white lg:min-h-screen">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(34,211,238,.24),transparent_34%),radial-gradient(circle_at_82%_12%,rgba(251,113,133,.20),transparent_30%),linear-gradient(180deg,rgba(11,16,32,.1),rgba(11,16,32,.82))]" />
-          <div className="relative z-10 mx-auto grid min-h-[calc(100vh-6rem)] max-w-7xl items-center gap-10 px-4 pb-10 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
+          <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-4 pb-8 sm:px-6 sm:pb-10 lg:min-h-[calc(100vh-6rem)] lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 lg:px-8">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 text-sm font-semibold text-white/74 backdrop-blur">
+              <p className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-2 text-xs font-semibold text-white/74 backdrop-blur sm:px-4 sm:text-sm">
                 <Sparkles size={16} className="text-cyan-300" /> Finca premium para eventos
               </p>
-              <h1 className="mt-6 max-w-3xl text-5xl font-black leading-[0.92] tracking-tight sm:text-7xl lg:text-8xl">
+              <h1 className="mt-5 max-w-3xl text-4xl font-black leading-[0.96] tracking-tight sm:mt-6 sm:text-6xl lg:text-8xl">
                 Tu evento, armado en minutos.
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-white/66">
+              <p className="mt-5 max-w-xl text-base leading-7 text-white/70 sm:mt-6 sm:text-lg sm:leading-8">
                 Elegi fecha, formato y espacio sin navegar de mas. Una experiencia moderna para cotizar y reservar la finca.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#reservar" className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-black text-slate-950 transition hover:bg-rose-300">
+              <div className="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap">
+                <a href="#reservar" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-black text-slate-950 transition hover:bg-rose-300 sm:w-auto">
                   Consultar disponibilidad <ArrowRight size={18} />
                 </a>
-                <a href="#galeria" className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/8 px-6 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/14">
+                <a href="#galeria" className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/14 bg-white/8 px-6 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/14 sm:w-auto">
                   Ver imagenes
                 </a>
               </div>
             </div>
 
-            <div className="grid h-[680px] grid-cols-6 grid-rows-6 gap-3">
-              <div className="relative col-span-4 row-span-4 overflow-hidden rounded-[2rem]">
+            <div className="grid h-[430px] grid-cols-4 grid-rows-5 gap-2 sm:h-[560px] sm:grid-cols-6 sm:grid-rows-6 sm:gap-3 lg:h-[680px]">
+              <div className="relative col-span-4 row-span-3 overflow-hidden rounded-3xl sm:row-span-4 sm:rounded-[2rem]">
                 <Image src={withBasePath('/images/real-villa.jpg')} alt="Entrada principal de la finca" fill priority className="object-cover" />
               </div>
-              <div className="relative col-span-2 row-span-3 overflow-hidden rounded-[2rem]">
+              <div className="relative col-span-2 row-span-1 overflow-hidden rounded-3xl sm:row-span-3 sm:rounded-[2rem]">
                 <Image src={withBasePath('/images/real-pool.jpg')} alt="Piscina de la finca" fill className="object-cover" />
               </div>
-              <div className="relative col-span-2 row-span-3 overflow-hidden rounded-[2rem]">
+              <div className="relative col-span-2 row-span-1 overflow-hidden rounded-3xl sm:row-span-3 sm:rounded-[2rem]">
                 <Image src={withBasePath('/images/real-reception.jpg')} alt="Salon principal" fill className="object-cover" />
               </div>
-              <div className="relative col-span-2 row-span-2 overflow-hidden rounded-[2rem]">
+              <div className="relative hidden overflow-hidden rounded-[2rem] sm:col-span-2 sm:row-span-2 sm:block">
                 <Image src={withBasePath('/images/real-couple.jpg')} alt="Ceremonia en la finca" fill className="object-cover" />
               </div>
-              <div className="col-span-2 row-span-2 rounded-[2rem] border border-white/10 bg-white/10 p-5 backdrop-blur">
+              <div className="col-span-4 row-span-1 rounded-3xl border border-white/10 bg-white/10 p-4 backdrop-blur sm:col-span-2 sm:row-span-2 sm:rounded-[2rem] sm:p-5">
                 <p className="text-sm font-semibold text-cyan-300">Disponible</p>
-                <p className="mt-2 text-3xl font-black">{availability[0]?.date}</p>
-                <p className="mt-2 text-sm text-white/62">Primera fecha para consulta rapida.</p>
+                <p className="mt-1 text-2xl font-black sm:mt-2 sm:text-3xl">{availability[0]?.date}</p>
+                <p className="mt-1 text-sm text-white/66 sm:mt-2">Primera fecha para consulta rapida.</p>
               </div>
             </div>
           </div>
@@ -176,20 +176,20 @@ export function MainPage() {
           </div>
         </section>
 
-        <section id="reservar" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <section id="reservar" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="rounded-[2rem] bg-[#111827] p-6 text-white sm:p-8">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">Reserva guiada</p>
-              <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">Decidi lo importante primero.</h2>
+            <div className="rounded-3xl bg-[#111827] p-5 text-white sm:rounded-[2rem] sm:p-8">
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-300 sm:text-sm sm:tracking-[0.18em]">Reserva guiada</p>
+              <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">Decidi lo importante primero.</h2>
               <p className="mt-4 leading-7 text-white/64">Selecciona el tipo de evento y completa solo los datos necesarios. El resto se define por WhatsApp o email.</p>
 
-              <div className="mt-8 grid grid-cols-2 gap-3">
+              <div className="mt-7 grid grid-cols-2 gap-2 sm:mt-8 sm:gap-3">
                 {eventTypes.map((type) => (
                   <button
                     key={type}
                     type="button"
                     onClick={() => setActiveEvent(type)}
-                    className={`rounded-2xl border px-4 py-4 text-left text-sm font-black transition ${activeEvent === type ? 'border-cyan-300 bg-cyan-300 text-slate-950' : 'border-white/10 bg-white/7 text-white hover:bg-white/12'}`}
+                    className={`min-h-14 rounded-2xl border px-3 py-3 text-left text-sm font-black transition sm:px-4 sm:py-4 ${activeEvent === type ? 'border-cyan-300 bg-cyan-300 text-slate-950' : 'border-white/10 bg-white/7 text-white hover:bg-white/12'}`}
                   >
                     {type}
                   </button>
@@ -197,10 +197,10 @@ export function MainPage() {
               </div>
             </div>
 
-            <form className="grid gap-5 rounded-[2rem] border border-slate-200 bg-white p-5 text-slate-950 shadow-2xl shadow-cyan-950/10 sm:grid-cols-2 sm:p-6">
+            <form className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-5 text-slate-950 shadow-2xl shadow-cyan-950/10 sm:grid-cols-2 sm:gap-5 sm:rounded-[2rem] sm:p-6">
               <div className="sm:col-span-2">
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-700">Datos de consulta</p>
-                <h3 className="mt-2 text-2xl font-black tracking-tight">Te respondemos con una propuesta inicial.</h3>
+                <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-700 sm:text-sm sm:tracking-[0.18em]">Datos de consulta</p>
+                <h3 className="mt-2 text-xl font-black tracking-tight sm:text-2xl">Te respondemos con una propuesta inicial.</h3>
               </div>
               <label className="text-sm font-black text-slate-700">
                 Nombre
@@ -214,7 +214,7 @@ export function MainPage() {
                 Fecha ideal
                 <select name="date" value={form.date} onChange={updateForm} className="form-field mt-2">
                 {availability.map((slot) => (
-                  <option key={slot.date} value={slot.date}>{slot.date} · {slot.label}</option>
+                  <option key={slot.date} value={slot.date}>{slot.date} - {slot.label}</option>
                 ))}
                 </select>
               </label>
@@ -226,11 +226,11 @@ export function MainPage() {
                 Mensaje
                 <textarea name="message" value={form.message} onChange={updateForm} className="form-field mt-2 min-h-28 resize-none" placeholder="Contanos fecha, tipo de evento o dudas principales" />
               </label>
-              <div className="flex flex-wrap gap-3 sm:col-span-2">
-                <a href={whatsappLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-black text-slate-950 transition hover:bg-rose-300">
+              <div className="grid gap-3 sm:col-span-2 sm:flex sm:flex-wrap">
+                <a href={whatsappLink} target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-black text-slate-950 transition hover:bg-rose-300 sm:w-auto">
                   WhatsApp <MessageCircle size={18} />
                 </a>
-                <a href={`mailto:${siteConfig.email}`} className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-6 py-3 text-sm font-black text-slate-950">
+                <a href={`mailto:${siteConfig.email}`} className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 px-6 py-3 text-sm font-black text-slate-950 sm:w-auto">
                   Email <Send size={18} />
                 </a>
               </div>
@@ -238,31 +238,31 @@ export function MainPage() {
           </div>
         </section>
 
-        <section id="espacios" className="bg-[#eaf2ff] py-20 dark:bg-white/5">
+        <section id="espacios" className="bg-[#eaf2ff] py-14 dark:bg-white/5 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-5 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">Espacios</p>
-                <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-6xl">Toca, mira y compara.</h2>
+                <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300 sm:text-sm sm:tracking-[0.18em]">Espacios</p>
+                <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-6xl">Toca, mira y compara.</h2>
               </div>
               <p className="max-w-2xl text-base leading-8 text-current/62">Cada espacio muestra imagen, capacidad, precio orientativo y uso recomendado sin ventanas extras ni textos largos.</p>
             </div>
 
-            <div className="mt-10 grid gap-5 lg:grid-cols-[360px_1fr]">
+            <div className="mt-8 grid gap-5 sm:mt-10 lg:grid-cols-[360px_1fr]">
               <div className="grid gap-3">
                 {spaces.map((space) => (
                   <button
                     key={space.id}
                     type="button"
                     onClick={() => setActiveSpaceId(space.id)}
-                    className={`group grid grid-cols-[92px_1fr] items-center gap-4 rounded-3xl border p-3 text-left transition ${activeSpaceId === space.id ? 'border-cyan-700 bg-white shadow-lg shadow-black/5 dark:border-cyan-300 dark:bg-white/10' : 'border-black/5 bg-white/50 hover:bg-white dark:border-white/10 dark:bg-white/6'}`}
+                    className={`group grid grid-cols-[76px_1fr] items-center gap-3 rounded-3xl border p-3 text-left transition sm:grid-cols-[92px_1fr] sm:gap-4 ${activeSpaceId === space.id ? 'border-cyan-700 bg-white shadow-lg shadow-black/5 dark:border-cyan-300 dark:bg-white/10' : 'border-black/5 bg-white/50 hover:bg-white dark:border-white/10 dark:bg-white/6'}`}
                   >
-                    <span className="relative h-24 overflow-hidden rounded-2xl">
+                    <span className="relative h-20 overflow-hidden rounded-2xl sm:h-24">
                       <Image src={withBasePath(space.image)} alt={space.name} fill className="object-cover transition duration-500 group-hover:scale-105" />
                     </span>
                     <span>
-                      <span className="block text-xs font-black uppercase tracking-[0.16em] text-current/42">{space.category}</span>
-                      <span className="mt-1 block text-2xl font-black tracking-tight">{space.name}</span>
+                      <span className="block text-[11px] font-black uppercase tracking-[0.12em] text-current/42 sm:text-xs sm:tracking-[0.16em]">{space.category}</span>
+                      <span className="mt-1 block text-lg font-black tracking-tight sm:text-2xl">{space.name}</span>
                       <span className="mt-1 block text-sm text-current/58">{space.capacity}</span>
                     </span>
                   </button>
@@ -270,16 +270,16 @@ export function MainPage() {
               </div>
 
               {activeSpace ? (
-                <article className="overflow-hidden rounded-[2rem] bg-[#111827] text-white shadow-2xl shadow-black/10">
-                  <div className="relative h-[500px]">
+                <article className="overflow-hidden rounded-3xl bg-[#111827] text-white shadow-2xl shadow-black/10 sm:rounded-[2rem]">
+                  <div className="relative h-[360px] sm:h-[500px]">
                     <Image src={withBasePath(activeSpace.image)} alt={activeSpace.name} fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/8 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                      <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">{activeSpace.category}</p>
-                      <h3 className="mt-2 text-5xl font-black tracking-tight sm:text-7xl">{activeSpace.name}</h3>
+                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
+                      <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-300 sm:text-sm sm:tracking-[0.18em]">{activeSpace.category}</p>
+                      <h3 className="mt-2 text-3xl font-black tracking-tight sm:text-7xl">{activeSpace.name}</h3>
                     </div>
                   </div>
-                  <div className="grid gap-6 p-6 sm:grid-cols-[1fr_1.2fr] sm:p-8">
+                  <div className="grid gap-5 p-5 sm:grid-cols-[1fr_1.2fr] sm:gap-6 sm:p-8">
                     <p className="text-base leading-8 text-white/66">{activeSpace.description}</p>
                     <dl className="grid gap-3 sm:grid-cols-2">
                       {[
@@ -301,11 +301,11 @@ export function MainPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid gap-5 md:grid-cols-3">
             {experiences.map((experience) => (
-              <article key={experience.id} className="group overflow-hidden rounded-[2rem] bg-white shadow-lg shadow-black/5 dark:bg-white/6">
-                <div className="relative h-72">
+              <article key={experience.id} className="group overflow-hidden rounded-3xl bg-white shadow-lg shadow-black/5 dark:bg-white/6 sm:rounded-[2rem]">
+                <div className="relative h-56 sm:h-72">
                   <Image src={withBasePath(experience.image)} alt={experience.title} fill className="object-cover transition duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
@@ -317,12 +317,12 @@ export function MainPage() {
           </div>
         </section>
 
-        <section id="galeria" className="bg-[#111827] py-20 text-white">
+        <section id="galeria" className="bg-[#111827] py-14 text-white sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">Galeria</p>
-                <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-6xl">Imagenes primero.</h2>
+                <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-300 sm:text-sm sm:tracking-[0.18em]">Galeria</p>
+                <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-6xl">Imagenes primero.</h2>
               </div>
               <div className="flex gap-3">
                 <button type="button" onClick={() => setActiveGallery((value) => (value - 1 + galleryItems.length) % galleryItems.length)} className="grid h-11 w-11 place-items-center rounded-full border border-white/12 bg-white/8" aria-label="Imagen anterior">
@@ -334,20 +334,20 @@ export function MainPage() {
               </div>
             </div>
 
-            <div className="mt-10 grid gap-4 lg:grid-cols-[1.35fr_0.65fr]">
-              <button type="button" onClick={() => setLightboxOpen(true)} className="group relative min-h-[620px] overflow-hidden rounded-[2rem] text-left">
+            <div className="mt-8 grid gap-4 sm:mt-10 lg:grid-cols-[1.35fr_0.65fr]">
+              <button type="button" onClick={() => setLightboxOpen(true)} className="group relative min-h-[420px] overflow-hidden rounded-3xl text-left sm:min-h-[560px] sm:rounded-[2rem] lg:min-h-[620px]">
                 <Image src={withBasePath(galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg')} alt={galleryItems[activeGallery]?.title ?? 'Galeria'} fill className="object-cover transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">{galleryItems[activeGallery]?.category}</p>
-                  <h3 className="mt-2 text-5xl font-black tracking-tight">{galleryItems[activeGallery]?.title}</h3>
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
+                  <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-300 sm:text-sm sm:tracking-[0.18em]">{galleryItems[activeGallery]?.category}</p>
+                  <h3 className="mt-2 text-3xl font-black tracking-tight sm:text-5xl">{galleryItems[activeGallery]?.title}</h3>
                   <p className="mt-3 max-w-xl text-sm leading-7 text-white/70">{galleryItems[activeGallery]?.description}</p>
                 </div>
               </button>
 
               <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
                 {galleryItems.slice(0, 4).map((item, index) => (
-                  <button key={item.src} type="button" onClick={() => setActiveGallery(index)} className={`relative min-h-36 overflow-hidden rounded-3xl border text-left ${activeGallery === index ? 'border-cyan-300' : 'border-white/10'}`}>
+                  <button key={item.src} type="button" onClick={() => setActiveGallery(index)} className={`relative min-h-28 overflow-hidden rounded-2xl border text-left sm:min-h-36 sm:rounded-3xl ${activeGallery === index ? 'border-cyan-300' : 'border-white/10'}`}>
                     <Image src={withBasePath(item.src)} alt={item.title} fill className="object-cover" />
                     <div className="absolute inset-0 bg-black/34" />
                     <p className="absolute bottom-3 left-3 right-3 text-sm font-black">{item.title}</p>
@@ -358,15 +358,15 @@ export function MainPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">Eventos reales</p>
-              <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-6xl">Casos para imaginar el tuyo.</h2>
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300 sm:text-sm sm:tracking-[0.18em]">Eventos reales</p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-6xl">Casos para imaginar el tuyo.</h2>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
               {eventCases.map((eventCase) => (
-                <article key={eventCase.title} className="overflow-hidden rounded-[2rem] bg-white shadow-lg shadow-black/5 dark:bg-white/6">
+                <article key={eventCase.title} className="overflow-hidden rounded-3xl bg-white shadow-lg shadow-black/5 dark:bg-white/6 sm:rounded-[2rem]">
                   <div className="relative h-44">
                     <Image src={withBasePath(eventCase.image)} alt={eventCase.title} fill className="object-cover" />
                   </div>
@@ -382,19 +382,19 @@ export function MainPage() {
           </div>
         </section>
 
-        <section className="bg-white py-20 dark:bg-white/5">
+        <section className="bg-white py-14 dark:bg-white/5 sm:py-20">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">Confianza</p>
-              <h2 className="mt-3 text-4xl font-black tracking-tight">Opinion clara de clientes.</h2>
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300 sm:text-sm sm:tracking-[0.18em]">Confianza</p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Opinion clara de clientes.</h2>
               <div className="mt-6 flex items-center gap-3">
-                <span className="text-6xl font-black tracking-tight">4.9</span>
+                <span className="text-5xl font-black tracking-tight sm:text-6xl">4.9</span>
                 <span className="text-sm font-semibold text-current/52">rating medio<br />+300 experiencias</span>
               </div>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
               {testimonials.map((testimonial) => (
-                <article key={testimonial.name} className="rounded-[2rem] border border-current/10 p-5">
+                <article key={testimonial.name} className="rounded-3xl border border-current/10 p-5 sm:rounded-[2rem]">
                   <div className="flex gap-1 text-rose-500 dark:text-rose-300">
                     {Array.from({ length: testimonial.rating }).map((_, index) => (
                       <Star key={index} size={16} fill="currentColor" />
@@ -409,20 +409,20 @@ export function MainPage() {
           </div>
         </section>
 
-        <section id="contacto" className="bg-[#0b1020] py-20 text-white">
+        <section id="contacto" className="bg-[#0b1020] py-14 text-white sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-              <div className="relative min-h-[620px] overflow-hidden rounded-[2rem]">
+              <div className="relative min-h-[420px] overflow-hidden rounded-3xl sm:min-h-[560px] sm:rounded-[2rem] lg:min-h-[620px]">
                 <Image src={withBasePath('/images/real-reception.jpg')} alt="Terraza de la finca" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-300">Contacto</p>
-                  <h2 className="mt-3 text-5xl font-black tracking-tight sm:text-6xl">Cotiza tu fecha.</h2>
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
+                  <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-300 sm:text-sm sm:tracking-[0.18em]">Contacto</p>
+                  <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-6xl">Cotiza tu fecha.</h2>
                   <p className="mt-4 max-w-md leading-7 text-white/68">Respuesta directa con disponibilidad, espacio recomendado y proximo paso.</p>
                 </div>
               </div>
 
-              <div className="grid content-between gap-6 rounded-[2rem] border border-white/10 bg-white/7 p-6 sm:p-8">
+              <div className="grid content-between gap-6 rounded-3xl border border-white/10 bg-white/7 p-5 sm:rounded-[2rem] sm:p-8">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <ContactLine icon={<Phone size={18} />} label="Telefono" value={siteConfig.phone} />
                   <ContactLine icon={<Mail size={18} />} label="Email" value={siteConfig.email} />
@@ -442,11 +442,11 @@ export function MainPage() {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-3">
-                  <a href={whatsappLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-black text-slate-950 hover:bg-rose-300">
+                <div className="grid gap-3 sm:flex sm:flex-wrap">
+                  <a href={whatsappLink} target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-black text-slate-950 hover:bg-rose-300 sm:w-auto">
                     WhatsApp <MessageCircle size={18} />
                   </a>
-                  <a href={`mailto:${siteConfig.email}`} className="inline-flex items-center gap-2 rounded-full border border-white/14 px-6 py-3 text-sm font-black">
+                  <a href={`mailto:${siteConfig.email}`} className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/14 px-6 py-3 text-sm font-black sm:w-auto">
                     Email <Send size={18} />
                   </a>
                 </div>
@@ -456,11 +456,11 @@ export function MainPage() {
         </section>
       </main>
 
-      <a href={whatsappLink} target="_blank" rel="noreferrer" className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-xl" aria-label="Contactar por WhatsApp">
+      <a href={whatsappLink} target="_blank" rel="noreferrer" className="fixed bottom-4 right-4 z-50 grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-xl sm:bottom-5 sm:right-5 sm:h-14 sm:w-14" aria-label="Contactar por WhatsApp">
         <Phone size={24} />
       </a>
 
-      <footer className="bg-[#0b1020] px-4 py-10 text-white sm:px-6 lg:px-8">
+      <footer className="bg-[#0b1020] px-4 pb-24 pt-10 text-white sm:px-6 sm:pb-10 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
           <div>
             <p className="text-xl font-black tracking-tight">{siteConfig.name}</p>
@@ -474,18 +474,18 @@ export function MainPage() {
       </footer>
 
       {lightboxOpen ? (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/92 px-4 py-8" onClick={() => setLightboxOpen(false)}>
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/92 px-4 py-5 sm:py-8" onClick={() => setLightboxOpen(false)}>
           <div className="w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
             <div className="mb-3 flex items-center justify-between text-white">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">{galleryItems[activeGallery]?.category}</p>
-                <h3 className="text-3xl font-black tracking-tight">{galleryItems[activeGallery]?.title}</h3>
+                <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-300 sm:tracking-[0.18em]">{galleryItems[activeGallery]?.category}</p>
+                <h3 className="text-xl font-black tracking-tight sm:text-3xl">{galleryItems[activeGallery]?.title}</h3>
               </div>
               <button type="button" onClick={() => setLightboxOpen(false)} className="grid h-10 w-10 place-items-center rounded-full border border-white/16" aria-label="Cerrar">
                 <X size={18} />
               </button>
             </div>
-            <div className="relative h-[76vh] overflow-hidden rounded-[2rem] bg-white/5">
+            <div className="relative h-[70vh] overflow-hidden rounded-3xl bg-white/5 sm:h-[76vh] sm:rounded-[2rem]">
               <Image src={withBasePath(galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg')} alt={galleryItems[activeGallery]?.title ?? ''} fill className="object-cover" />
             </div>
           </div>
