@@ -3,6 +3,7 @@ export type Space = {
   name: string;
   description: string;
   image: string;
+  gallery: string[];
   capacity: string;
   services: string[];
   category: string;
@@ -32,13 +33,16 @@ export const cabinEquipment = [
   'Sommier doble + cama cucheta',
 ];
 
+const cabinInterior = '/images/hogarcabaña.jpg';
+
 export const spaces: Space[] = [
   {
     id: 'las-acacias',
     name: 'Las Acacias',
     description:
       'Cabana equipada para una estadia practica y comoda. Ideal para parejas, familias chicas o grupos de hasta 3 personas.',
-    image: '/images/hogarcabaña.jpg',
+    image: cabinInterior,
+    gallery: [cabinInterior, '/images/hero-finca.png', '/images/asador.png'],
     capacity: 'Hasta 3 personas',
     services: cabinEquipment,
     category: 'Cabana',
@@ -54,7 +58,8 @@ export const spaces: Space[] = [
     name: 'La Tranquera',
     description:
       'Cabana para 3 personas con la misma equipacion que Las Acacias, pensada para resolver lo necesario sin complicaciones.',
-    image: '/images/hogarcabaña.jpg',
+    image: cabinInterior,
+    gallery: [cabinInterior, '/images/asador.png', '/images/hero-finca.png'],
     capacity: 'Hasta 3 personas',
     services: cabinEquipment,
     category: 'Cabana',
@@ -70,7 +75,8 @@ export const spaces: Space[] = [
     name: 'Del Arroyo',
     description:
       'Cabana para 4 personas, equipada con cocina, ropa blanca de uso interno y climatizacion frio/calor.',
-    image: '/images/hogarcabaña.jpg',
+    image: cabinInterior,
+    gallery: [cabinInterior, '/images/hero-finca.png', '/images/ovejas.png'],
     capacity: 'Hasta 4 personas',
     services: cabinEquipment,
     category: 'Cabana',
@@ -86,7 +92,8 @@ export const spaces: Space[] = [
     name: 'Del Parque',
     description:
       'Cabana para 4 personas con la misma equipacion que Del Arroyo y acceso simple a los espacios comunes.',
-    image: '/images/hogarcabaña.jpg',
+    image: cabinInterior,
+    gallery: [cabinInterior, '/images/asador.png', '/images/caballo.png'],
     capacity: 'Hasta 4 personas',
     services: cabinEquipment,
     category: 'Cabana',

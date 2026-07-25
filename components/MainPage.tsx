@@ -37,8 +37,8 @@ import { spaces } from '@/data/spaces';
 import { testimonials } from '@/data/testimonials';
 
 const navItems = [
+  { label: 'Cabanas', href: '#hospedajes' },
   { label: 'Sobre', href: '#sobre' },
-  { label: 'Hospedajes', href: '#hospedajes' },
   { label: 'Actividades', href: '#actividades' },
   { label: 'Animales', href: '#animales' },
   { label: 'Ubicacion', href: '#ubicacion' },
@@ -47,13 +47,6 @@ const navItems = [
 
 const siteBasePath = process.env.NEXT_PUBLIC_GITHUB_PAGES === 'true' ? '/fincaDemo' : '';
 const withBasePath = (src: string) => (src.startsWith('/images/') ? `${siteBasePath}${src}` : src);
-
-const quickStats = [
-  { value: '4', label: 'cabanas equipadas' },
-  { value: '14', label: 'huespedes maximos' },
-  { value: '6', label: 'espacios comunes' },
-  { value: 'Trail', label: 'Cerro Blanco' },
-];
 
 const equipmentGroups = [
   { title: 'Confort', icon: BedDouble, items: ['Aire frio/calor', 'Salamandra', 'Bolsa de agua caliente para cama', 'Sommier doble + cama cucheta'] },
@@ -94,6 +87,8 @@ export function MainPage() {
   const [activeCabinId, setActiveCabinId] = useState(spaces[0]?.id ?? '');
   const [activeGallery, setActiveGallery] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeCabinGalleryId, setActiveCabinGalleryId] = useState<string | null>(null);
+  const [activeCabinGalleryIndex, setActiveCabinGalleryIndex] = useState(0);
 
   useEffect(() => {
     const updateHeader = () => setScrolled(window.scrollY > 24);
@@ -106,6 +101,15 @@ export function MainPage() {
     () => spaces.find((space) => space.id === activeCabinId) ?? spaces[0],
     [activeCabinId],
   );
+  const activeCabinGallery = useMemo(
+    () => spaces.find((space) => space.id === activeCabinGalleryId) ?? null,
+    [activeCabinGalleryId],
+  );
+
+  const openCabinGallery = (cabinId: string, index = 0) => {
+    setActiveCabinGalleryId(cabinId);
+    setActiveCabinGalleryIndex(index);
+  };
 
   const whatsappLink = `https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(
     'Hola, quiero consultar disponibilidad en Finca Carranza Sosa.',
@@ -159,31 +163,20 @@ export function MainPage() {
             <div className="max-w-3xl">
               <p className="text-xs font-light uppercase tracking-[0.34em] text-white/78">Turismo rural</p>
               <h1 className="mt-5 max-w-4xl text-[clamp(3rem,10vw,6.7rem)] font-bold leading-[0.92] tracking-normal">
-                Descanso entre naturaleza y calma.
+                Cabanas rurales para descansar.
               </h1>
               <p className="mt-6 max-w-2xl text-lg font-normal leading-8 text-white/82 sm:text-xl">
-                Alojamiento rural con cabanas equipadas, espacios abiertos, granja ecologica y actividades para desconectar del ritmo cotidiano.
+                Cuatro cabanas equipadas en un entorno natural, con espacios abiertos, granja ecologica y actividades para desconectar del ritmo cotidiano.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a href={whatsappLink} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#B86E4B] px-6 py-3.5 text-sm font-bold text-white shadow-[0_16px_40px_rgba(47,93,80,0.18)] transition hover:bg-[#a55f40]">
                   Consultar disponibilidad <ArrowRight size={18} />
                 </a>
                 <a href="#hospedajes" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/26 bg-white/12 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-md transition hover:bg-white/18">
-                  Ver hospedajes
+                  Ver cabanas
                 </a>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="bg-[#FAF9F6]">
-          <div className="mx-auto grid max-w-7xl gap-0 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-            {quickStats.map((item) => (
-              <div key={item.label} className="border-[#D9D6CF] py-5 sm:border-l sm:px-7 first:sm:border-l-0">
-                <p className="text-4xl font-bold tracking-normal text-[#2F5D50]">{item.value}</p>
-                <p className="mt-2 text-xs font-light uppercase tracking-[0.22em] text-[#6F6F6F]">{item.label}</p>
-              </div>
-            ))}
           </div>
         </section>
 
@@ -215,47 +208,6 @@ export function MainPage() {
                   <p className="text-xs font-light uppercase tracking-[0.24em] text-white/62">Identidad</p>
                   <p className="mt-3 text-2xl font-bold leading-tight">Naturaleza, calidad y calma en una experiencia rural.</p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="galeria" className="bg-[#FAF9F6] py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
-              <div>
-                <SectionKicker>Galeria</SectionKicker>
-                <h2 className="section-title">Fotografias protagonistas.</h2>
-              </div>
-              <div className="flex gap-2">
-                <button type="button" onClick={() => setActiveGallery((value) => (value - 1 + galleryItems.length) % galleryItems.length)} className="icon-button" aria-label="Imagen anterior">
-                  <ChevronLeft size={18} />
-                </button>
-                <button type="button" onClick={() => setActiveGallery((value) => (value + 1) % galleryItems.length)} className="icon-button" aria-label="Imagen siguiente">
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-            </div>
-
-            <div className="mt-10 grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
-              <button type="button" onClick={() => setLightboxOpen(true)} className="group relative min-h-[460px] overflow-hidden rounded-2xl text-left sm:min-h-[640px]">
-                <Image src={withBasePath(galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg')} alt={galleryItems[activeGallery]?.title ?? 'Galeria'} fill className="object-cover transition duration-700 group-hover:scale-[1.03]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/58 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                  <p className="text-xs font-light uppercase tracking-[0.24em] text-white/72">{galleryItems[activeGallery]?.category}</p>
-                  <h3 className="mt-2 text-3xl font-bold tracking-normal text-white sm:text-5xl">{galleryItems[activeGallery]?.title}</h3>
-                  <p className="mt-3 max-w-xl text-sm font-normal leading-7 text-white/76">{galleryItems[activeGallery]?.description}</p>
-                </div>
-              </button>
-
-              <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
-                {galleryItems.slice(0, 4).map((item, index) => (
-                  <button key={item.src} type="button" onClick={() => setActiveGallery(index)} className={`relative min-h-36 overflow-hidden rounded-2xl border text-left transition sm:min-h-40 ${activeGallery === index ? 'border-[#B86E4B]' : 'border-[#D9D6CF]'}`}>
-                    <Image src={withBasePath(item.src)} alt={item.title} fill className="object-cover" />
-                    <div className="absolute inset-0 bg-black/28" />
-                    <p className="absolute bottom-4 left-4 right-4 text-sm font-bold text-white">{item.title}</p>
-                  </button>
-                ))}
               </div>
             </div>
           </div>
@@ -311,6 +263,13 @@ export function MainPage() {
                       <InfoTile label="Capacidad" value={activeCabin.capacity} />
                       <InfoTile label="Camas" value={activeCabin.surface} />
                     </div>
+                    <button
+                      type="button"
+                      onClick={() => openCabinGallery(activeCabin.id)}
+                      className="mt-5 inline-flex items-center justify-center rounded-xl bg-[#B86E4B] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#a55f40]"
+                    >
+                      Ver mas fotos de esta cabana
+                    </button>
                   </div>
                   <div>
                     <p className="text-xs font-light uppercase tracking-[0.22em] text-[#6F6F6F]">Incluye</p>
@@ -319,6 +278,19 @@ export function MainPage() {
                         <p key={item} className="flex items-start gap-2 text-sm font-normal leading-6 text-[#6F6F6F]">
                           <Check className="mt-1 shrink-0 text-[#2F5D50]" size={16} /> {item}
                         </p>
+                      ))}
+                    </div>
+                    <div className="mt-6 grid grid-cols-3 gap-3">
+                      {activeCabin.gallery.map((src, index) => (
+                        <button
+                          key={`${activeCabin.id}-${src}`}
+                          type="button"
+                          onClick={() => openCabinGallery(activeCabin.id, index)}
+                          className="relative h-24 overflow-hidden rounded-xl border border-[#D9D6CF]"
+                          aria-label={`Ver foto ${index + 1} de ${activeCabin.name}`}
+                        >
+                          <Image src={withBasePath(src)} alt={`${activeCabin.name} foto ${index + 1}`} fill className="object-cover" />
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -333,7 +305,7 @@ export function MainPage() {
             <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
               <div>
                 <SectionKicker>Equipamiento</SectionKicker>
-                <h2 className="section-title">Comodidad sin sobrecargar la informacion.</h2>
+                <h2 className="section-title">Todo lo necesario para una estadia comoda.</h2>
               </div>
               <div className="grid gap-4 md:grid-cols-3">
                 {equipmentGroups.map((group) => {
@@ -352,6 +324,47 @@ export function MainPage() {
                     </article>
                   );
                 })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="galeria" className="bg-[#FAF9F6] py-16 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+              <div>
+                <SectionKicker>Galeria</SectionKicker>
+                <h2 className="section-title">Mira mas fotos del establecimiento.</h2>
+              </div>
+              <div className="flex gap-2">
+                <button type="button" onClick={() => setActiveGallery((value) => (value - 1 + galleryItems.length) % galleryItems.length)} className="icon-button" aria-label="Imagen anterior">
+                  <ChevronLeft size={18} />
+                </button>
+                <button type="button" onClick={() => setActiveGallery((value) => (value + 1) % galleryItems.length)} className="icon-button" aria-label="Imagen siguiente">
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
+              <button type="button" onClick={() => setLightboxOpen(true)} className="group relative min-h-[460px] overflow-hidden rounded-2xl text-left sm:min-h-[640px]">
+                <Image src={withBasePath(galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg')} alt={galleryItems[activeGallery]?.title ?? 'Galeria'} fill className="object-cover transition duration-700 group-hover:scale-[1.03]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/58 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                  <p className="text-xs font-light uppercase tracking-[0.24em] text-white/72">{galleryItems[activeGallery]?.category}</p>
+                  <h3 className="mt-2 text-3xl font-bold tracking-normal text-white sm:text-5xl">{galleryItems[activeGallery]?.title}</h3>
+                  <p className="mt-3 max-w-xl text-sm font-normal leading-7 text-white/76">{galleryItems[activeGallery]?.description}</p>
+                </div>
+              </button>
+
+              <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
+                {galleryItems.slice(0, 4).map((item, index) => (
+                  <button key={item.src} type="button" onClick={() => setActiveGallery(index)} className={`relative min-h-36 overflow-hidden rounded-2xl border text-left transition sm:min-h-40 ${activeGallery === index ? 'border-[#B86E4B]' : 'border-[#D9D6CF]'}`}>
+                    <Image src={withBasePath(item.src)} alt={item.title} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-black/28" />
+                    <p className="absolute bottom-4 left-4 right-4 text-sm font-bold text-white">{item.title}</p>
+                  </button>
+                ))}
               </div>
             </div>
           </div>
@@ -533,7 +546,7 @@ export function MainPage() {
       </main>
 
       <a href={whatsappLink} target="_blank" rel="noreferrer" className="fixed bottom-4 right-4 z-50 grid h-14 w-14 place-items-center rounded-2xl bg-[#2F5D50] text-white shadow-[0_18px_45px_rgba(47,93,80,0.24)] transition hover:bg-[#24483e] sm:bottom-5 sm:right-5" aria-label="Contactar por WhatsApp">
-        <MessageCircle size={25} />
+        <WhatsAppIcon />
       </a>
 
       <footer className="bg-[#FAF9F6] px-4 py-10 text-[#5C4635] sm:px-6 lg:px-8">
@@ -550,6 +563,61 @@ export function MainPage() {
           </div>
         </div>
       </footer>
+
+      {activeCabinGallery ? (
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/92 px-4 py-5" onClick={() => setActiveCabinGalleryId(null)}>
+          <div className="w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
+            <div className="mb-3 flex items-center justify-between gap-4 text-white">
+              <div>
+                <p className="text-xs font-light uppercase tracking-[0.24em] text-white/62">Fotos de cabana</p>
+                <h3 className="text-xl font-bold tracking-normal sm:text-3xl">{activeCabinGallery.name}</h3>
+              </div>
+              <button type="button" onClick={() => setActiveCabinGalleryId(null)} className="grid h-10 w-10 place-items-center rounded-xl border border-white/18" aria-label="Cerrar fotos de cabana">
+                <X size={18} />
+              </button>
+            </div>
+
+            <div className="relative h-[72vh] overflow-hidden rounded-2xl bg-white/5">
+              <Image
+                src={withBasePath(activeCabinGallery.gallery[activeCabinGalleryIndex] ?? activeCabinGallery.image)}
+                alt={`${activeCabinGallery.name} foto ${activeCabinGalleryIndex + 1}`}
+                fill
+                className="object-contain"
+              />
+              <button
+                type="button"
+                onClick={() => setActiveCabinGalleryIndex((value) => (value - 1 + activeCabinGallery.gallery.length) % activeCabinGallery.gallery.length)}
+                className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-xl bg-black/45 text-white backdrop-blur-md"
+                aria-label="Foto anterior de cabana"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveCabinGalleryIndex((value) => (value + 1) % activeCabinGallery.gallery.length)}
+                className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-xl bg-black/45 text-white backdrop-blur-md"
+                aria-label="Foto siguiente de cabana"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+
+            <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-6">
+              {activeCabinGallery.gallery.map((src, index) => (
+                <button
+                  key={`${activeCabinGallery.id}-modal-${src}`}
+                  type="button"
+                  onClick={() => setActiveCabinGalleryIndex(index)}
+                  className={`relative h-20 overflow-hidden rounded-xl border ${activeCabinGalleryIndex === index ? 'border-[#B86E4B]' : 'border-white/18'}`}
+                  aria-label={`Abrir foto ${index + 1} de ${activeCabinGallery.name}`}
+                >
+                  <Image src={withBasePath(src)} alt={`${activeCabinGallery.name} miniatura ${index + 1}`} fill className="object-cover" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
 
       {lightboxOpen ? (
         <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/92 px-4 py-5" onClick={() => setLightboxOpen(false)}>
@@ -600,5 +668,13 @@ function SocialButton({ href, label, icon }: { href: string; label: string; icon
     <a href={href} target="_blank" rel="noreferrer" className="contact-button border border-[#D9D6CF] bg-[#FAF9F6] text-[#5C4635]">
       {label} {icon}
     </a>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 32 32" className="h-7 w-7" fill="currentColor">
+      <path d="M16.04 3.2A12.68 12.68 0 0 0 5.22 22.5L3.7 28.8l6.45-1.5a12.67 12.67 0 1 0 5.89-24.1Zm0 22.98a10.46 10.46 0 0 1-5.33-1.46l-.38-.23-3.83.9.92-3.72-.25-.39a10.42 10.42 0 1 1 8.87 4.9Zm5.73-7.8c-.31-.16-1.85-.91-2.14-1.02-.29-.1-.5-.16-.71.16-.21.31-.82 1.02-1 1.23-.18.21-.37.24-.68.08-.31-.16-1.32-.49-2.51-1.55a9.38 9.38 0 0 1-1.74-2.16c-.18-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.55-.08-.16-.71-1.71-.97-2.34-.26-.61-.52-.53-.71-.54h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.22 3.39 5.38 4.75.75.32 1.34.52 1.8.66.76.24 1.45.21 1.99.13.61-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.13-.29-.21-.6-.37Z" />
+    </svg>
   );
 }
