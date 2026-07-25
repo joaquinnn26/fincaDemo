@@ -8,23 +8,23 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    name: 'Clara & Tomás',
-    eventType: 'Boda campestre',
-    quote: 'Todo fue impecable, desde la atención hasta la decoración. El lugar respiraba elegancia y calma.',
+    name: 'Clara y Tomas',
+    eventType: 'Escapada familiar',
+    quote: 'El lugar transmite calma desde que llegas. Las cabanas son comodas y el entorno invita a descansar.',
     rating: 5,
     date: 'Junio 2024',
   },
   {
     name: 'Marta L.',
-    eventType: 'Celebración familiar',
-    quote: 'Un entorno precioso para reunir a toda la familia. Nos sentimos acompañados en cada detalle.',
+    eventType: 'Fin de semana rural',
+    quote: 'Nos encanto el parque, la pileta y la posibilidad de pasar tiempo al aire libre en familia.',
     rating: 5,
     date: 'Mayo 2024',
   },
   {
     name: 'Alejandro R.',
-    eventType: 'Evento corporativo',
-    quote: 'La finca transmite exclusividad, funcionalidad y una experiencia muy cuidada para nuestros invitados.',
+    eventType: 'Descanso y caminatas',
+    quote: 'La informacion fue clara, el contacto rapido y la estadia muy tranquila. Volveriamos.',
     rating: 5,
     date: 'Abril 2024',
   },

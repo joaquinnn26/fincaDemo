@@ -4,10 +4,29 @@ export type Faq = {
 };
 
 export const faqs: Faq[] = [
-  { question: '¿Cuál es la capacidad máxima?', answer: 'La finca puede acoger hasta 220 personas entre espacios interiores y exteriores.' },
-  { question: '¿Se permiten mascotas?', answer: 'Sí, con previa coordinación y en determinadas zonas.' },
-  { question: '¿Hay alojamiento?', answer: 'Sí, disponemos de habitaciones y suites para alojamiento rural.' },
-  { question: '¿La finca dispone de aparcamiento?', answer: 'Sí, con espacio suficiente para invitados y vehículos.' },
-  { question: '¿Se puede contratar catering externo?', answer: 'Sí, siempre que se ajuste a nuestras condiciones y logística.' },
-  { question: '¿Hay espacios cubiertos?', answer: 'Sí, contamos con zonas interiores y exteriores para adaptarnos a cualquier clima.' },
+  {
+    question: 'Cuantas cabanas tiene la finca?',
+    answer: 'Tiene 4 cabanas: Las Acacias y La Tranquera para 3 personas; Del Arroyo y Del Parque para 4 personas.',
+  },
+  {
+    question: 'Que incluye cada cabana?',
+    answer:
+      'Incluyen aire frio/calor, salamandra, cocina equipada, vajilla, microondas, horno electrico, pava electrica, anafe, ropa blanca de uso interno, elementos de higiene y secador de pelo.',
+  },
+  {
+    question: 'Que espacios comunes hay?',
+    answer: 'Los huespedes pueden usar gimnasio, quincho, pileta, parque, asadores y granja ecologica.',
+  },
+  {
+    question: 'Las cabalgatas estan incluidas?',
+    answer: 'No. Las cabalgatas son un servicio diferenciado y tienen precio aparte.',
+  },
+  {
+    question: 'Donde puedo ver la ubicacion?',
+    answer: 'La finca cuenta con ubicacion en Google Maps y acceso directo desde la pagina.',
+  },
+  {
+    question: 'Tienen redes sociales?',
+    answer: 'Si. La pagina incluye accesos a Instagram, Facebook y Airbnb.',
+  },
 ];

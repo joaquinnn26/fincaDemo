@@ -3,31 +3,60 @@ export type Experience = {
   title: string;
   description: string;
   image: string;
+  note?: string;
 };
 
-export const experiences: Experience[] = [
+export const commonAreas: Experience[] = [
   {
-    id: 'weddings',
-    title: 'Bodas',
-    description: 'Ceremonias al aire libre, cenas íntimas y celebraciones con una atmósfera inolvidable.',
-    image: '/images/real-couple.jpg',
-  },
-  {
-    id: 'families',
-    title: 'Eventos familiares',
-    description: 'Espacios para reencuentros, aniversarios y celebraciones con todos los detalles cuidados.',
-    image: '/images/real-villa.jpg',
-  },
-  {
-    id: 'company',
-    title: 'Reuniones de empresa',
-    description: 'Un entorno exclusivo para retreats, convenciones y momentos de trabajo en naturaleza.',
+    id: 'gimnasio',
+    title: 'Gimnasio',
+    description: 'Espacio comun para entrenar durante la estadia.',
     image: '/images/real-salon.jpg',
   },
   {
-    id: 'retreats',
-    title: 'Escapadas rurales',
-    description: 'Un retiro sereno para desconectar, descansar y disfrutar de la arquitectura del lugar.',
-    image: '/images/real-room.jpg',
+    id: 'quincho',
+    title: 'Quincho',
+    description: 'Sector compartido para reuniones, comidas y momentos de descanso.',
+    image: '/images/salon.jpg',
+  },
+  {
+    id: 'pileta',
+    title: 'Pileta',
+    description: 'Piscina de uso comun para disfrutar al aire libre.',
+    image: '/images/real-pool.jpg',
+  },
+  {
+    id: 'parque',
+    title: 'Parque',
+    description: 'Entorno verde para caminar, descansar, usar los asadores y pasar el dia.',
+    image: '/images/asador.png',
+  },
+  {
+    id: 'granja',
+    title: 'Granja ecologica',
+    description: 'Espacio de contacto con la naturaleza dentro de la finca.',
+    image: '/images/ovejas.png',
+  },
+  {
+    id: 'asadores',
+    title: 'Asadores',
+    description: 'Asadores disponibles en el parque para comidas al aire libre.',
+    image: '/images/asador.png',
+  },
+];
+
+export const experiences: Experience[] = [
+  {
+    id: 'caminatas',
+    title: 'Caminatas',
+    description: 'Actividad para recorrer el entorno natural de la finca.',
+    image: '/images/hero-finca.png',
+  },
+  {
+    id: 'cabalgatas',
+    title: 'Cabalgatas',
+    description: 'Servicio diferenciado para sumar una experiencia al aire libre.',
+    image: '/images/caballo.png',
+    note: 'Tienen precio aparte.',
   },
 ];

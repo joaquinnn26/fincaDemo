@@ -6,12 +6,52 @@ export type GalleryItem = {
 };
 
 export const galleryItems: GalleryItem[] = [
-  { src: '/images/real-villa.jpg', title: 'Entrada principal', category: 'Naturaleza', description: 'Vista exterior de una villa mediterránea con piscina.' },
-  { src: '/images/real-garden.jpg', title: 'Ceremonia exterior', category: 'Jardines', description: 'Montaje real para ceremonia al aire libre.' },
-  { src: '/images/real-couple.jpg', title: 'Boda en finca', category: 'Bodas', description: 'Pareja en un entorno de finca elegante.' },
-  { src: '/images/real-pool.jpg', title: 'Piscina panorámica', category: 'Piscina', description: 'Piscina mediterránea con vistas abiertas.' },
-  { src: '/images/real-reception.jpg', title: 'Recepción', category: 'Eventos', description: 'Mesa larga preparada para celebración.' },
-  { src: '/images/real-room.jpg', title: 'Habitación boutique', category: 'Habitaciones', description: 'Alojamiento cálido con madera natural.' },
-  { src: '/images/real-salon.jpg', title: 'Salón para montar', category: 'Eventos', description: 'Interior amplio preparado para montaje flexible.' },
-  { src: '/images/real-couple.jpg', title: 'Retrato de boda', category: 'Bodas', description: 'Escena real de boda en jardines.' },
+  {
+    src: '/images/hero-finca.png',
+    title: 'Cabanas',
+    category: 'Alojamiento',
+    description: 'Cuatro cabanas equipadas para 3 y 4 personas.',
+  },
+  {
+    src: '/images/hogarcabaña.jpg',
+    title: 'Interior equipado',
+    category: 'Comodidades',
+    description: 'Ambientes preparados con cocina, vajilla, toallas y climatizacion.',
+  },
+  {
+    src: '/images/real-pool.jpg',
+    title: 'Pileta',
+    category: 'Espacio comun',
+    description: 'Piscina compartida para disfrutar durante la estadia.',
+  },
+  {
+    src: '/images/asador.png',
+    title: 'Parque',
+    category: 'Espacio comun',
+    description: 'Entorno verde con lugar para descansar, caminar y usar los asadores.',
+  },
+  {
+    src: '/images/salon.jpg',
+    title: 'Quincho',
+    category: 'Espacio comun',
+    description: 'Sector compartido para comidas y reuniones.',
+  },
+  {
+    src: '/images/caballo.png',
+    title: 'Actividades',
+    category: 'Servicios',
+    description: 'Caminatas y cabalgatas disponibles. Las cabalgatas tienen costo aparte.',
+  },
+  {
+    src: '/images/ovejas.png',
+    title: 'Granja ecologica',
+    category: 'Naturaleza',
+    description: 'Un espacio de contacto con la naturaleza dentro de la finca.',
+  },
+  {
+    src: '/images/ovejascaballo.png',
+    title: 'Vida rural',
+    category: 'Animales',
+    description: 'Ovejas, caballos y entorno natural dentro de la finca.',
+  },
 ];
