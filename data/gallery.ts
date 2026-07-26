@@ -7,40 +7,46 @@ export type GalleryItem = {
 
 export const galleryItems: GalleryItem[] = [
   {
-    src: '/images/hero-finca.png',
+    src: '/images/galeria-partecabañas.png',
     title: 'Cabanas',
     category: 'Alojamiento',
     description: 'Cuatro cabanas equipadas para 3 y 4 personas.',
   },
   {
-    src: '/images/hogarcabaña.jpg',
+    src: '/images/interiorequipado.png',
     title: 'Interior equipado',
     category: 'Comodidades',
     description: 'Ambientes preparados con cocina, vajilla, toallas y climatizacion.',
   },
   {
-    src: '/images/real-pool.jpg',
+    src: '/images/piscina.png',
     title: 'Pileta',
     category: 'Espacio comun',
     description: 'Piscina compartida para disfrutar durante la estadia.',
   },
   {
-    src: '/images/asador.png',
-    title: 'Parque',
-    category: 'Espacio comun',
-    description: 'Entorno verde con lugar para descansar, caminar y usar los asadores.',
-  },
-  {
-    src: '/images/salon.jpg',
+    src: '/images/quincho.png',
     title: 'Quincho',
     category: 'Espacio comun',
     description: 'Sector compartido para comidas y reuniones.',
   },
   {
-    src: '/images/caballo.png',
-    title: 'Actividades',
+    src: '/images/asador.png',
+    title: 'Asadores',
+    category: 'Espacio comun',
+    description: 'Entorno verde con lugar para descansar, caminar y usar los asadores.',
+  },
+  {
+    src: '/images/cabalgata.png',
+    title: 'Cabalgatas',
     category: 'Servicios',
-    description: 'Caminatas y cabalgatas disponibles. Las cabalgatas tienen costo aparte.',
+    description: 'Cabalgatas disponibles con precio aparte.',
+  },
+  {
+    src: '/images/trailrunning.jpg',
+    title: 'Trail Running Cerro Blanco',
+    category: 'Evento',
+    description: 'Encuentro deportivo en el entorno natural de la finca.',
   },
   {
     src: '/images/ovejas.png',

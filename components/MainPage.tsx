@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
+  ArrowDown,
   BedDouble,
   Check,
   ChevronLeft,
@@ -120,7 +121,7 @@ export function MainPage() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#F4EFE7] text-[#5C4635]">
       <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled || menuOpen ? 'border-b border-[#D9D6CF] bg-[#FAF9F6]/94 shadow-[0_10px_30px_rgba(92,70,53,0.06)] backdrop-blur-xl' : 'bg-transparent text-white'}`}>
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
           <Link href="#inicio" className="flex min-w-0 items-center">
             <BrandLogo light={!scrolled && !menuOpen} />
           </Link>
@@ -155,25 +156,25 @@ export function MainPage() {
       </header>
 
       <main id="inicio">
-        <section className="relative isolate min-h-screen overflow-hidden bg-[#2F5D50] text-white">
+        <section className="relative isolate min-h-[720px] overflow-hidden bg-[#2F5D50] text-white sm:min-h-screen">
           <Image src={withBasePath('/images/hero-finca.png')} alt="Entrada de Finca Carranza Sosa rodeada de arboles" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(47,93,80,.58),rgba(47,93,80,.22)_48%,rgba(47,93,80,.74)),linear-gradient(90deg,rgba(47,93,80,.78),rgba(47,93,80,.18)_62%)]" />
 
-          <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-20 lg:px-8">
+          <div className="relative z-10 mx-auto flex min-h-[720px] max-w-7xl flex-col justify-end px-4 pb-12 pt-24 sm:min-h-screen sm:px-6 sm:pb-20 lg:px-8">
             <div className="max-w-3xl">
-              <p className="text-xs font-light uppercase tracking-[0.34em] text-white/78">Turismo rural</p>
-              <h1 className="mt-5 max-w-4xl text-[clamp(3rem,10vw,6.7rem)] font-bold leading-[0.92] tracking-normal">
+              <p className="text-[0.68rem] font-light uppercase tracking-[0.28em] text-white/78 sm:text-xs sm:tracking-[0.34em]">Turismo rural</p>
+              <h1 className="mt-4 max-w-4xl text-[clamp(2.45rem,13vw,6.7rem)] font-bold leading-[0.95] tracking-normal sm:mt-5">
                 Cabanas rurales para descansar.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg font-normal leading-8 text-white/82 sm:text-xl">
-                Cuatro cabanas equipadas en un entorno natural, con espacios abiertos, granja ecologica y actividades para desconectar del ritmo cotidiano.
+              <p className="mt-5 max-w-2xl text-base font-normal leading-7 text-white/82 sm:mt-6 sm:text-xl sm:leading-8">
+                Escapate del ruido y disfrutá de la naturaleza en un entorno pensado para desconectar.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <a href={whatsappLink} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#B86E4B] px-6 py-3.5 text-sm font-bold text-white shadow-[0_16px_40px_rgba(47,93,80,0.18)] transition hover:bg-[#a55f40]">
-                  Consultar disponibilidad <ArrowRight size={18} />
-                </a>
-                <a href="#hospedajes" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/26 bg-white/12 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-md transition hover:bg-white/18">
+              <div className="mt-7 flex justify-center sm:mt-8 sm:justify-start">
+                <a href="#hospedajes" className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/24 bg-white/14 px-5 py-3 text-sm font-bold text-white shadow-[0_16px_42px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-white/44 hover:bg-white/22 sm:px-6 sm:py-3.5">
                   Ver cabanas
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-white/16 text-white transition group-hover:translate-y-0.5 group-hover:bg-white/24">
+                    <ArrowDown size={16} />
+                  </span>
                 </a>
               </div>
             </div>
@@ -197,16 +198,31 @@ export function MainPage() {
               </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-[0.8fr_1.2fr]">
-              <div className="relative min-h-[360px] overflow-hidden rounded-2xl sm:min-h-[520px]">
-                <Image src={withBasePath('/images/asador.png')} alt="Parque con asadores y arboles" fill className="object-cover" />
+              <div className="relative min-h-[260px] overflow-hidden rounded-2xl sm:min-h-[520px]">
+                <Image src={withBasePath('/images/caballoparasobrelafinca.png')} alt="Caballo en el parque de la finca" fill className="object-cover" />
               </div>
               <div className="grid gap-4">
-                <div className="relative min-h-[240px] overflow-hidden rounded-2xl">
-                  <Image src={withBasePath('/images/hogarcabaña.jpg')} alt="Interior calido de cabana con hogar" fill className="object-cover" />
+                <div className="relative min-h-[190px] overflow-hidden rounded-2xl sm:min-h-[240px]">
+                  <Image src={withBasePath('/images/sobrefinca.png')} alt="Vista desde el interior hacia el parque de la finca" fill className="object-cover" />
                 </div>
-                <div className="rounded-2xl bg-[#2F5D50] p-6 text-white">
-                  <p className="text-xs font-light uppercase tracking-[0.24em] text-white/62">Identidad</p>
-                  <p className="mt-3 text-2xl font-bold leading-tight">Naturaleza, calidad y calma en una experiencia rural.</p>
+                <div className="rounded-2xl border border-[#D9D6CF] bg-[#FAF9F6] p-5 shadow-[0_18px_45px_rgba(92,70,53,0.05)] sm:p-6">
+                  <div className="mb-5 h-1 w-14 rounded-full bg-[#B86E4B]" />
+                  <div className="grid gap-4">
+                    <div>
+                      <p className="text-2xl font-bold text-[#2F5D50]">4</p>
+                      <p className="mt-1 text-xs font-light uppercase tracking-[0.2em] text-[#6F6F6F]">Cabanas equipadas</p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3 border-t border-[#D9D6CF] pt-4">
+                      <div>
+                        <p className="text-xl font-bold text-[#5C4635]">6</p>
+                        <p className="mt-1 text-xs font-normal leading-5 text-[#6F6F6F]">Espacios comunes</p>
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold text-[#5C4635]">2</p>
+                        <p className="mt-1 text-xs font-normal leading-5 text-[#6F6F6F]">Actividades rurales</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -224,20 +240,35 @@ export function MainPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-[360px_1fr]">
-            <div className="grid gap-3">
+          <div className="mt-8 grid gap-5 lg:mt-10 lg:grid-cols-[360px_1fr]">
+            <label className="block lg:hidden">
+              <span className="mb-2 block text-xs font-light uppercase tracking-[0.22em] text-[#6F6F6F]">Elegir cabana</span>
+              <select
+                value={activeCabinId}
+                onChange={(event) => setActiveCabinId(event.target.value)}
+                className="w-full rounded-2xl border border-[#D9D6CF] bg-[#FAF9F6] px-4 py-3.5 text-sm font-bold text-[#5C4635] shadow-[0_14px_35px_rgba(92,70,53,0.05)] outline-none focus:border-[#B86E4B]"
+              >
+                {spaces.map((cabin) => (
+                  <option key={cabin.id} value={cabin.id}>
+                    {cabin.name} - {cabin.capacity}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <div className="hidden gap-3 lg:grid">
               {spaces.map((cabin) => (
                 <button
                   key={cabin.id}
                   type="button"
                   onClick={() => setActiveCabinId(cabin.id)}
-                  className={`grid grid-cols-[84px_1fr] items-center gap-4 rounded-2xl border p-3 text-left transition ${activeCabinId === cabin.id ? 'border-[#2F5D50] bg-[#FAF9F6] shadow-[0_18px_45px_rgba(92,70,53,0.08)]' : 'border-[#D9D6CF] bg-[#FAF9F6]/58 hover:bg-[#FAF9F6]'}`}
+                  className={`grid min-w-[245px] grid-cols-[68px_1fr] items-center gap-3 rounded-2xl border p-3 text-left transition lg:min-w-0 lg:grid-cols-[84px_1fr] lg:gap-4 ${activeCabinId === cabin.id ? 'border-[#2F5D50] bg-[#FAF9F6] shadow-[0_18px_45px_rgba(92,70,53,0.08)]' : 'border-[#D9D6CF] bg-[#FAF9F6]/58 hover:bg-[#FAF9F6]'}`}
                 >
-                  <span className="relative h-24 overflow-hidden rounded-xl">
+                  <span className="relative h-20 overflow-hidden rounded-xl lg:h-24">
                     <Image src={withBasePath(cabin.image)} alt={cabin.name} fill className="object-cover" />
                   </span>
                   <span>
-                    <span className="block text-xl font-bold tracking-normal text-[#5C4635]">{cabin.name}</span>
+                    <span className="block text-lg font-bold tracking-normal text-[#5C4635] lg:text-xl">{cabin.name}</span>
                     <span className="mt-1 flex items-center gap-2 text-sm font-normal text-[#6F6F6F]">
                       <Users size={16} /> {cabin.capacity}
                     </span>
@@ -248,17 +279,17 @@ export function MainPage() {
 
             {activeCabin ? (
               <article className="overflow-hidden rounded-2xl border border-[#D9D6CF] bg-[#FAF9F6] shadow-[0_22px_60px_rgba(92,70,53,0.08)]">
-                <div className="relative min-h-[330px] sm:min-h-[500px]">
+                <div className="relative min-h-[260px] sm:min-h-[500px]">
                   <Image src={withBasePath(activeCabin.image)} alt={activeCabin.name} fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/58 via-black/8 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                     <p className="text-xs font-light uppercase tracking-[0.24em] text-white/72">{activeCabin.capacity}</p>
-                    <h3 className="mt-2 text-4xl font-bold tracking-normal text-white sm:text-6xl">{activeCabin.name}</h3>
+                    <h3 className="mt-2 text-3xl font-bold tracking-normal text-white sm:text-6xl">{activeCabin.name}</h3>
                   </div>
                 </div>
-                <div className="grid gap-7 p-6 sm:p-8 lg:grid-cols-[0.8fr_1.2fr]">
+                <div className="grid gap-6 p-5 sm:p-8 lg:grid-cols-[0.8fr_1.2fr]">
                   <div>
-                    <p className="text-base font-normal leading-8 text-[#6F6F6F]">{activeCabin.description}</p>
+                    <p className="text-sm font-normal leading-7 text-[#6F6F6F] sm:text-base sm:leading-8">{activeCabin.description}</p>
                     <div className="mt-5 grid grid-cols-2 gap-3">
                       <InfoTile label="Capacidad" value={activeCabin.capacity} />
                       <InfoTile label="Camas" value={activeCabin.surface} />
@@ -266,7 +297,7 @@ export function MainPage() {
                     <button
                       type="button"
                       onClick={() => openCabinGallery(activeCabin.id)}
-                      className="mt-5 inline-flex items-center justify-center rounded-xl bg-[#B86E4B] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#a55f40]"
+                      className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-[#B86E4B] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#a55f40] sm:w-auto"
                     >
                       Ver mas fotos de esta cabana
                     </button>
@@ -280,13 +311,13 @@ export function MainPage() {
                         </p>
                       ))}
                     </div>
-                    <div className="mt-6 grid grid-cols-3 gap-3">
+                    <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
                       {activeCabin.gallery.map((src, index) => (
                         <button
                           key={`${activeCabin.id}-${src}`}
                           type="button"
                           onClick={() => openCabinGallery(activeCabin.id, index)}
-                          className="relative h-24 overflow-hidden rounded-xl border border-[#D9D6CF]"
+                          className="relative h-20 overflow-hidden rounded-xl border border-[#D9D6CF] sm:h-24"
                           aria-label={`Ver foto ${index + 1} de ${activeCabin.name}`}
                         >
                           <Image src={withBasePath(src)} alt={`${activeCabin.name} foto ${index + 1}`} fill className="object-cover" />
@@ -300,9 +331,9 @@ export function MainPage() {
           </div>
         </section>
 
-        <section className="bg-[#FAF9F6] py-16 sm:py-24">
+        <section className="bg-[#FAF9F6] py-12 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+            <div className="grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:gap-8">
               <div>
                 <SectionKicker>Equipamiento</SectionKicker>
                 <h2 className="section-title">Todo lo necesario para una estadia comoda.</h2>
@@ -311,7 +342,7 @@ export function MainPage() {
                 {equipmentGroups.map((group) => {
                   const Icon = group.icon;
                   return (
-                    <article key={group.title} className="rounded-2xl border border-[#D9D6CF] bg-white p-6 shadow-[0_18px_45px_rgba(92,70,53,0.05)]">
+                    <article key={group.title} className="rounded-2xl border border-[#D9D6CF] bg-white p-5 shadow-[0_18px_45px_rgba(92,70,53,0.05)] sm:p-6">
                       <div className="grid h-12 w-12 place-items-center rounded-xl bg-[#F4EFE7] text-[#2F5D50]">
                         <Icon size={22} />
                       </div>
@@ -329,7 +360,7 @@ export function MainPage() {
           </div>
         </section>
 
-        <section id="galeria" className="bg-[#FAF9F6] py-16 sm:py-24">
+        <section id="galeria" className="bg-[#FAF9F6] py-12 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
               <div>
@@ -346,8 +377,8 @@ export function MainPage() {
               </div>
             </div>
 
-            <div className="mt-10 grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
-              <button type="button" onClick={() => setLightboxOpen(true)} className="group relative min-h-[460px] overflow-hidden rounded-2xl text-left sm:min-h-[640px]">
+            <div className="mt-8 grid gap-4 lg:mt-10 lg:grid-cols-[1.35fr_0.65fr] lg:gap-5">
+              <button type="button" onClick={() => setLightboxOpen(true)} className="group relative min-h-[360px] overflow-hidden rounded-2xl text-left sm:min-h-[640px]">
                 <Image src={withBasePath(galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg')} alt={galleryItems[activeGallery]?.title ?? 'Galeria'} fill className="object-cover transition duration-700 group-hover:scale-[1.03]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/58 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
@@ -357,9 +388,9 @@ export function MainPage() {
                 </div>
               </button>
 
-              <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
+              <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-1">
                 {galleryItems.slice(0, 4).map((item, index) => (
-                  <button key={item.src} type="button" onClick={() => setActiveGallery(index)} className={`relative min-h-36 overflow-hidden rounded-2xl border text-left transition sm:min-h-40 ${activeGallery === index ? 'border-[#B86E4B]' : 'border-[#D9D6CF]'}`}>
+                  <button key={item.src} type="button" onClick={() => setActiveGallery(index)} className={`relative h-32 min-w-[180px] overflow-hidden rounded-2xl border text-left transition sm:min-h-40 sm:min-w-0 ${activeGallery === index ? 'border-[#B86E4B]' : 'border-[#D9D6CF]'}`}>
                     <Image src={withBasePath(item.src)} alt={item.title} fill className="object-cover" />
                     <div className="absolute inset-0 bg-black/28" />
                     <p className="absolute bottom-4 left-4 right-4 text-sm font-bold text-white">{item.title}</p>
@@ -377,7 +408,7 @@ export function MainPage() {
               <h2 className="section-title">Experiencias al aire libre.</h2>
             </div>
             <p className="max-w-xl text-base font-normal leading-8 text-[#6F6F6F]">
-              Caminatas, cabalgatas y espacios comunes para disfrutar el entorno rural. Las cabalgatas tienen precio aparte.
+              Caminatas, cabalgatas y espacios comunes para disfrutar el entorno rural.
             </p>
           </div>
 
@@ -386,10 +417,10 @@ export function MainPage() {
               const Icon = areaIcons[item.id] ?? Leaf;
               return (
                 <article key={item.id} className="group overflow-hidden rounded-2xl border border-[#D9D6CF] bg-[#FAF9F6] shadow-[0_18px_45px_rgba(92,70,53,0.05)]">
-                  <div className="relative h-64">
+                  <div className="relative h-56 sm:h-64">
                     <Image src={withBasePath(item.image)} alt={item.title} fill className="object-cover transition duration-700 group-hover:scale-[1.03]" />
                   </div>
-                  <div className="p-6">
+                  <div className="p-5 sm:p-6">
                     <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-[#F4EFE7] text-[#2F5D50]">
                       <Icon size={20} />
                     </div>
@@ -405,7 +436,7 @@ export function MainPage() {
           </div>
         </section>
 
-        <section id="animales" className="bg-[#2F5D50] py-16 text-white sm:py-24">
+        <section id="animales" className="bg-[#2F5D50] py-12 text-white sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
               <div>
@@ -420,10 +451,10 @@ export function MainPage() {
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {animalItems.map((item) => (
                 <article key={item.title} className="overflow-hidden rounded-2xl bg-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
-                  <div className="relative h-72">
+                  <div className="relative h-56 sm:h-72">
                     <Image src={withBasePath(item.image)} alt={item.title} fill className="object-cover" />
                   </div>
-                  <div className="p-6">
+                  <div className="p-5 sm:p-6">
                     <h3 className="text-2xl font-bold tracking-normal">{item.title}</h3>
                     <p className="mt-3 text-sm font-normal leading-7 text-white/68">{item.text}</p>
                   </div>
@@ -433,22 +464,22 @@ export function MainPage() {
           </div>
         </section>
 
-        <section id="trail-running" className="bg-[#F4EFE7] py-16 sm:py-24">
+        <section id="trail-running" className="bg-[#F4EFE7] py-12 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <article className="grid overflow-hidden rounded-2xl bg-[#FAF9F6] shadow-[0_22px_60px_rgba(92,70,53,0.08)] lg:grid-cols-[0.95fr_1.05fr]">
-              <div className="relative min-h-[340px] lg:min-h-[470px]">
-                <Image src={withBasePath('/images/hero-finca.png')} alt="Trail running Cerro Blanco en entorno natural" fill className="object-cover" />
+              <div className="relative min-h-[260px] lg:min-h-[470px]">
+                <Image src={withBasePath('/images/trailrunning.jpg')} alt="Trail running Cerro Blanco en entorno natural" fill className="object-cover" />
               </div>
-              <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-12">
+              <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-12">
                 <p className="inline-flex w-fit items-center gap-2 rounded-xl bg-[#F4EFE7] px-3 py-2 text-xs font-light uppercase tracking-[0.22em] text-[#6F6F6F]">
                   <Mountain size={16} className="text-[#B86E4B]" /> Evento especial
                 </p>
                 <h2 className="mt-5 text-3xl font-bold tracking-normal text-[#5C4635] sm:text-5xl">Trail Running Cerro Blanco</h2>
-                <p className="mt-4 max-w-xl text-base font-normal leading-8 text-[#6F6F6F]">
+                <p className="mt-4 max-w-xl text-sm font-normal leading-7 text-[#6F6F6F] sm:text-base sm:leading-8">
                   La finca tambien realiza eventos de trail running de Cerro Blanco. Este apartado redirige a una pagina dedicada que se va a completar mas adelante.
                 </p>
                 <div className="mt-7">
-                  <Link href="/trail-running" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#B86E4B] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#a55f40]">
+                  <Link href="/trail-running" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#B86E4B] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#a55f40] sm:w-auto">
                     Ver evento <ArrowRight size={18} />
                   </Link>
                 </div>
@@ -473,7 +504,7 @@ export function MainPage() {
               <iframe
                 title="Ubicacion de Finca Carranza Sosa en Google Maps"
                 src={mapEmbedUrl}
-                className="h-[520px] w-full border-0"
+                className="h-[360px] w-full border-0 sm:h-[520px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -481,7 +512,7 @@ export function MainPage() {
           </div>
         </section>
 
-        <section className="bg-[#FAF9F6] py-16 sm:py-24">
+        <section className="bg-[#FAF9F6] py-12 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
               <div>
@@ -545,8 +576,9 @@ export function MainPage() {
         </section>
       </main>
 
-      <a href={whatsappLink} target="_blank" rel="noreferrer" className="fixed bottom-4 right-4 z-50 grid h-14 w-14 place-items-center rounded-2xl bg-[#2F5D50] text-white shadow-[0_18px_45px_rgba(47,93,80,0.24)] transition hover:bg-[#24483e] sm:bottom-5 sm:right-5" aria-label="Contactar por WhatsApp">
+      <a href={whatsappLink} target="_blank" rel="noreferrer" className="fixed bottom-5 right-5 z-[90] inline-flex h-14 w-14 items-center justify-center gap-2 rounded-full bg-[#25D366] text-white shadow-[0_18px_45px_rgba(37,211,102,0.34)] ring-2 ring-white/80 transition hover:-translate-y-0.5 hover:bg-[#20bd5a] sm:w-auto sm:px-5" aria-label="Contactar por WhatsApp">
         <WhatsAppIcon />
+        <span className="hidden text-sm font-bold sm:inline">WhatsApp</span>
       </a>
 
       <footer className="bg-[#FAF9F6] px-4 py-10 text-[#5C4635] sm:px-6 lg:px-8">
@@ -565,7 +597,7 @@ export function MainPage() {
       </footer>
 
       {activeCabinGallery ? (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/92 px-4 py-5" onClick={() => setActiveCabinGalleryId(null)}>
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/72 px-3 py-4 backdrop-blur-xl sm:px-4 sm:py-5" onClick={() => setActiveCabinGalleryId(null)}>
           <div className="w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
             <div className="mb-3 flex items-center justify-between gap-4 text-white">
               <div>
@@ -577,7 +609,7 @@ export function MainPage() {
               </button>
             </div>
 
-            <div className="relative h-[72vh] overflow-hidden rounded-2xl bg-white/5">
+            <div className="relative h-[62vh] overflow-hidden rounded-2xl bg-white/5 sm:h-[72vh]">
               <Image
                 src={withBasePath(activeCabinGallery.gallery[activeCabinGalleryIndex] ?? activeCabinGallery.image)}
                 alt={`${activeCabinGallery.name} foto ${activeCabinGalleryIndex + 1}`}
@@ -587,7 +619,7 @@ export function MainPage() {
               <button
                 type="button"
                 onClick={() => setActiveCabinGalleryIndex((value) => (value - 1 + activeCabinGallery.gallery.length) % activeCabinGallery.gallery.length)}
-                className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-xl bg-black/45 text-white backdrop-blur-md"
+                className="absolute left-2 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-black/45 text-white backdrop-blur-md sm:left-3 sm:h-11 sm:w-11 sm:rounded-xl"
                 aria-label="Foto anterior de cabana"
               >
                 <ChevronLeft size={20} />
@@ -595,20 +627,20 @@ export function MainPage() {
               <button
                 type="button"
                 onClick={() => setActiveCabinGalleryIndex((value) => (value + 1) % activeCabinGallery.gallery.length)}
-                className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-xl bg-black/45 text-white backdrop-blur-md"
+                className="absolute right-2 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-black/45 text-white backdrop-blur-md sm:right-3 sm:h-11 sm:w-11 sm:rounded-xl"
                 aria-label="Foto siguiente de cabana"
               >
                 <ChevronRight size={20} />
               </button>
             </div>
 
-            <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-6">
+            <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6 sm:gap-3">
               {activeCabinGallery.gallery.map((src, index) => (
                 <button
                   key={`${activeCabinGallery.id}-modal-${src}`}
                   type="button"
                   onClick={() => setActiveCabinGalleryIndex(index)}
-                  className={`relative h-20 overflow-hidden rounded-xl border ${activeCabinGalleryIndex === index ? 'border-[#B86E4B]' : 'border-white/18'}`}
+                  className={`relative h-16 overflow-hidden rounded-xl border sm:h-20 ${activeCabinGalleryIndex === index ? 'border-[#B86E4B]' : 'border-white/18'}`}
                   aria-label={`Abrir foto ${index + 1} de ${activeCabinGallery.name}`}
                 >
                   <Image src={withBasePath(src)} alt={`${activeCabinGallery.name} miniatura ${index + 1}`} fill className="object-cover" />
@@ -620,7 +652,7 @@ export function MainPage() {
       ) : null}
 
       {lightboxOpen ? (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/92 px-4 py-5" onClick={() => setLightboxOpen(false)}>
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/72 px-3 py-4 backdrop-blur-xl sm:px-4 sm:py-5" onClick={() => setLightboxOpen(false)}>
           <div className="w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
             <div className="mb-3 flex items-center justify-between text-white">
               <div>
@@ -631,7 +663,7 @@ export function MainPage() {
                 <X size={18} />
               </button>
             </div>
-            <div className="relative h-[72vh] overflow-hidden rounded-2xl bg-white/5">
+            <div className="relative h-[66vh] overflow-hidden rounded-2xl bg-white/5 sm:h-[72vh]">
               <Image src={withBasePath(galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg')} alt={galleryItems[activeGallery]?.title ?? ''} fill className="object-cover" />
             </div>
           </div>

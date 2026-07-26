@@ -9,7 +9,7 @@ export default function TrailRunningPage() {
   return (
     <main className="min-h-screen bg-[#f8f5ee] text-[#1b1f1a]">
       <section className="relative isolate min-h-screen overflow-hidden bg-[#1b1f1a] text-white">
-        <Image src={withBasePath('/images/hero-finca.png')} alt="Trail Running Cerro Blanco" fill priority className="object-cover" />
+        <Image src={withBasePath('/images/trailrunning.jpg')} alt="Trail Running Cerro Blanco" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,24,20,.78),rgba(16,24,20,.42)_46%,rgba(16,24,20,.94)),linear-gradient(90deg,rgba(16,24,20,.86),rgba(16,24,20,.28)_62%)]" />
 
         <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 py-20 sm:px-6 lg:px-8">
