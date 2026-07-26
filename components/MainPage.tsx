@@ -160,16 +160,16 @@ export function MainPage() {
           <Image src={withBasePath('/images/hero-finca.png')} alt="Entrada de Finca Carranza Sosa rodeada de arboles" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(47,93,80,.58),rgba(47,93,80,.22)_48%,rgba(47,93,80,.74)),linear-gradient(90deg,rgba(47,93,80,.78),rgba(47,93,80,.18)_62%)]" />
 
-          <div className="relative z-10 mx-auto flex min-h-[720px] max-w-7xl flex-col justify-end px-4 pb-12 pt-24 sm:min-h-screen sm:px-6 sm:pb-20 lg:px-8">
-            <div className="max-w-3xl">
+          <div className="relative z-10 mx-auto flex min-h-[720px] max-w-7xl flex-col justify-end px-4 pb-16 pt-24 text-center sm:min-h-screen sm:px-6 sm:pb-20 sm:text-left lg:px-8">
+            <div className="mx-auto max-w-3xl sm:mx-0">
               <p className="text-[0.68rem] font-light uppercase tracking-[0.28em] text-white/78 sm:text-xs sm:tracking-[0.34em]">Turismo rural</p>
               <h1 className="mt-4 max-w-4xl text-[clamp(2.45rem,13vw,6.7rem)] font-bold leading-[0.95] tracking-normal sm:mt-5">
                 Cabanas rurales para descansar.
               </h1>
-              <p className="mt-5 max-w-2xl text-base font-normal leading-7 text-white/82 sm:mt-6 sm:text-xl sm:leading-8">
+              <p className="mx-auto mt-5 max-w-2xl text-base font-normal leading-7 text-white/82 sm:mx-0 sm:mt-6 sm:text-xl sm:leading-8">
                 Escapate del ruido y disfrutá de la naturaleza en un entorno pensado para desconectar.
               </p>
-              <div className="mt-7 flex justify-center sm:mt-8 sm:justify-start">
+              <div className="mt-14 flex justify-center sm:mt-8 sm:justify-start">
                 <a href="#hospedajes" className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/24 bg-white/14 px-5 py-3 text-sm font-bold text-white shadow-[0_16px_42px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-white/44 hover:bg-white/22 sm:px-6 sm:py-3.5">
                   Ver cabanas
                   <span className="grid h-7 w-7 place-items-center rounded-full bg-white/16 text-white transition group-hover:translate-y-0.5 group-hover:bg-white/24">
