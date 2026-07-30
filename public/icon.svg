@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <circle cx="256" cy="256" r="240" fill="#173b26"/>
+  <g transform="translate(256 256) scale(1.1) translate(-256 -256)">
+    <text x="256" y="205" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="128" font-weight="800" fill="#f7f1e6" letter-spacing="-18">CS</text>
+    <line x1="118" y1="270" x2="202" y2="270" stroke="#f7f1e6" stroke-width="5" stroke-linecap="round"/>
+    <line x1="310" y1="270" x2="394" y2="270" stroke="#f7f1e6" stroke-width="5" stroke-linecap="round"/>
+    <text x="256" y="281" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="400" fill="#f7f1e6" letter-spacing="16">FINCA</text>
+    <text x="256" y="326" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="38" font-weight="800" fill="#f7f1e6">CARRANZA SOSA</text>
+    <path d="M134 383c69-36 153-42 246-17" fill="none" stroke="#f7f1e6" stroke-width="10" stroke-linecap="round"/>
+    <path d="M158 403c60-28 123-29 194 5" fill="none" stroke="#f7f1e6" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="337" cy="360" r="13" fill="#f7f1e6"/>
+    <circle cx="361" cy="351" r="18" fill="#f7f1e6"/>
+    <rect x="333" y="369" width="6" height="18" rx="3" fill="#f7f1e6"/>
+    <rect x="358" y="369" width="7" height="21" rx="3.5" fill="#f7f1e6"/>
+  </g>
+</svg>

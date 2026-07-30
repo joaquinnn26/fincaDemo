@@ -2,7 +2,7 @@ export type Experience = {
   id: string;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   note?: string;
 };
 
@@ -29,19 +29,25 @@ export const commonAreas: Experience[] = [
     id: 'parque',
     title: 'Parque',
     description: 'Entorno verde para caminar, descansar, usar los asadores y pasar el dia.',
-    image: '/images/sobrefinca2.png',
+    image: '/images/nuevas/IMG_6697.png',
   },
   {
     id: 'granja',
     title: 'Granja ecologica',
     description: 'Espacio de contacto con la naturaleza dentro de la finca.',
-    image: '/images/ovejas.png',
+    image: '/images/granjaecologica.png',
   },
   {
     id: 'asadores',
     title: 'Asadores',
     description: 'Asadores disponibles en el parque para comidas al aire libre.',
-    image: '/images/asador.png',
+    image: '/images/nuevas/IMG_6634 (1).png',
+  },
+  {
+    id: 'huerta',
+    title: 'Huerta ecologica',
+    description: 'Un espacio natural que esta en proceso para sumar nuevas experiencias a la finca.',
+    note: 'En proceso.',
   },
 ];
 
@@ -50,11 +56,11 @@ export const experiences: Experience[] = [
     id: 'caminatas',
     title: 'Caminatas',
     description: 'Actividad para recorrer el entorno natural de la finca.',
-    image: '/images/sobrefinca2.png',
+    image: '/images/nuevas/IMG_6608.png',
   },
   {
-    id: 'cabalgatas',
-    title: 'Cabalgatas',
+    id: 'paseos-a-caballo',
+    title: 'Paseos a caballo',
     description: 'Servicio diferenciado para sumar una experiencia al aire libre.',
     image: '/images/cabalgata.png',
     note: 'Tienen precio aparte.',

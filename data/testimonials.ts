@@ -10,7 +10,7 @@ export const testimonials: Testimonial[] = [
   {
     name: 'Clara y Tomas',
     eventType: 'Escapada familiar',
-    quote: 'El lugar transmite calma desde que llegas. Las cabanas son comodas y el entorno invita a descansar.',
+    quote: 'El lugar transmite calma desde que llegas. Los departamentos son comodos y el entorno invita a descansar.',
     rating: 5,
     date: 'Junio 2024',
   },

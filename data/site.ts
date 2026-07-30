@@ -2,12 +2,12 @@ export const siteConfig = {
   name: 'Finca Carranza Sosa',
   tagline: 'Alojamiento rural en un entorno natural',
   description:
-    'Alojamiento rural simple, claro y comodo con cuatro cabanas, espacios comunes y actividades al aire libre.',
+    'Alojamiento rural simple, claro y comodo con cuatro departamentos, espacios comunes y actividades al aire libre.',
   phone: '+54 11 5888 3035',
   whatsapp: '+541158883035',
   email: 'consultas@fincacarranzasosa.com',
   address: 'Ubicacion disponible en Google Maps',
-  coordinates: { lat: -34.5632, lng: -59.1209 },
+  coordinates: { lat: -32.0665817, lng: -64.452774 },
   social: {
     instagram: 'https://www.instagram.com/fincacarranzasosa/',
     facebook: 'https://www.facebook.com/fincacarranzasosa/about/',
@@ -18,6 +18,6 @@ export const siteConfig = {
   capacities: {
     cabins: '4',
     guests: '14',
-    commonAreas: '6',
+    commonAreas: '7',
   },
 };

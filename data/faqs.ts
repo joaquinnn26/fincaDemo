@@ -5,21 +5,21 @@ export type Faq = {
 
 export const faqs: Faq[] = [
   {
-    question: 'Cuantas cabanas tiene la finca?',
-    answer: 'Tiene 4 cabanas: Las Acacias y La Tranquera para 3 personas; Del Arroyo y Del Parque para 4 personas.',
+    question: 'Cuantos departamentos tiene la finca?',
+    answer: 'Tiene 4 departamentos: Las Acacias y La Tranquera para 3 personas; Del Arroyo y Del Parque para 4 personas.',
   },
   {
-    question: 'Que incluye cada cabana?',
+    question: 'Que incluye cada departamento?',
     answer:
       'Incluyen aire frio/calor, salamandra, cocina equipada, vajilla, microondas, horno electrico, pava electrica, anafe, ropa blanca de uso interno, elementos de higiene y secador de pelo.',
   },
   {
     question: 'Que espacios comunes hay?',
-    answer: 'Los huespedes pueden usar gimnasio, quincho, pileta, parque, asadores y granja ecologica.',
+    answer: 'Los huespedes pueden usar gimnasio, quincho, pileta, parque, asadores, granja ecologica y proximamente huerta ecologica.',
   },
   {
-    question: 'Las cabalgatas estan incluidas?',
-    answer: 'No. Las cabalgatas son un servicio diferenciado y tienen precio aparte.',
+    question: 'Los paseos a caballo estan incluidos?',
+    answer: 'No. Los paseos a caballo son un servicio diferenciado y tienen precio aparte.',
   },
   {
     question: 'Donde puedo ver la ubicacion?',
