@@ -1,6 +1,6 @@
 param(
-  [int]$MaxSize = 1800,
-  [int]$Quality = 78
+  [int]$MaxSize = 1600,
+  [int]$Quality = 74
 )
 
 Add-Type -AssemblyName System.Drawing
@@ -48,6 +48,21 @@ foreach ($file in $files) {
 
   try {
     $image = [System.Drawing.Image]::FromFile($file.FullName)
+
+    if ($image.PropertyIdList -contains 274) {
+      $orientation = [BitConverter]::ToUInt16($image.GetPropertyItem(274).Value, 0)
+
+      switch ($orientation) {
+        2 { $image.RotateFlip([System.Drawing.RotateFlipType]::RotateNoneFlipX) }
+        3 { $image.RotateFlip([System.Drawing.RotateFlipType]::Rotate180FlipNone) }
+        4 { $image.RotateFlip([System.Drawing.RotateFlipType]::Rotate180FlipX) }
+        5 { $image.RotateFlip([System.Drawing.RotateFlipType]::Rotate90FlipX) }
+        6 { $image.RotateFlip([System.Drawing.RotateFlipType]::Rotate90FlipNone) }
+        7 { $image.RotateFlip([System.Drawing.RotateFlipType]::Rotate270FlipX) }
+        8 { $image.RotateFlip([System.Drawing.RotateFlipType]::Rotate270FlipNone) }
+      }
+    }
+
     $ratio = [Math]::Min($MaxSize / $image.Width, $MaxSize / $image.Height)
 
     if ($ratio -gt 1) {
