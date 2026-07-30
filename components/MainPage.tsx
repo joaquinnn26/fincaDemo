@@ -58,17 +58,17 @@ const animalItems = [
   {
     title: 'Caballos',
     text: 'Parte del paisaje rural y de las experiencias al aire libre de la finca.',
-    image: '/images/nuevas/IMG_6669.png',
+    image: '/images/optimized/nuevas/IMG_6669.jpg',
   },
   {
     title: 'Ovejas',
     text: 'Presencia de campo que refuerza el ambiente familiar y natural.',
-    image: '/images/nuevas/IMG_6649.png',
+    image: '/images/optimized/nuevas/IMG_6649.jpg',
   },
   {
     title: 'Granja ecologica',
     text: 'Un espacio de contacto simple con la naturaleza y la vida rural.',
-    image: '/images/granjaecologica.png',
+    image: '/images/optimized/granjaecologica.jpg',
   },
 ];
 
@@ -178,7 +178,7 @@ export function MainPage() {
 
       <main id="inicio">
         <section className="relative isolate min-h-[720px] overflow-hidden bg-[#2F5D50] text-white sm:min-h-screen" data-reveal>
-          <Image src={withBasePath('/images/hero-finca.png')} alt="Entrada de Finca Carranza Sosa rodeada de arboles" fill priority className="object-cover" />
+          <Image src={withBasePath('/images/optimized/hero-finca.jpg')} alt="Entrada de Finca Carranza Sosa rodeada de arboles" fill priority sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(47,93,80,.58),rgba(47,93,80,.22)_48%,rgba(47,93,80,.74)),linear-gradient(90deg,rgba(47,93,80,.78),rgba(47,93,80,.18)_62%)]" />
 
           <div className="relative z-10 mx-auto flex min-h-[720px] max-w-7xl flex-col justify-end px-4 pb-16 pt-24 text-center sm:min-h-screen sm:px-6 sm:pb-20 sm:text-left lg:px-8">
@@ -220,11 +220,11 @@ export function MainPage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-[0.8fr_1.2fr]">
               <div className="relative min-h-[260px] overflow-hidden rounded-2xl sm:min-h-[520px]">
-                <Image src={withBasePath('/images/nuevas/IMG_6669.png')} alt="Caballo en el parque de la finca" fill className="object-cover" />
+                <Image src={withBasePath('/images/optimized/nuevas/IMG_6669.jpg')} alt="Caballo en el parque de la finca" fill sizes="(min-width: 1024px) 36vw, (min-width: 640px) 40vw, 100vw" className="object-cover" />
               </div>
               <div className="grid gap-4">
                 <div className="relative min-h-[190px] overflow-hidden rounded-2xl sm:min-h-[240px]">
-                  <Image src={withBasePath('/images/sobrefinca.png')} alt="Vista desde el interior hacia el parque de la finca" fill className="object-cover" />
+                  <Image src={withBasePath('/images/optimized/sobrefinca.jpg')} alt="Vista desde el interior hacia el parque de la finca" fill sizes="(min-width: 1024px) 54vw, (min-width: 640px) 60vw, 100vw" className="object-cover" />
                 </div>
                 <div className="surface-card p-5 sm:p-6">
                   <div className="mb-5 h-1 w-14 rounded-full bg-[#B86E4B]" />
@@ -274,8 +274,8 @@ export function MainPage() {
                       : 'border-[#D9D6CF] bg-[#FAF9F6]/62 hover:bg-[#FAF9F6]'
                   }`}
                 >
-                  <span className="relative h-[72px] overflow-hidden rounded-xl">
-                    <Image src={withBasePath(cabin.image)} alt={cabin.name} fill className="object-cover transition duration-500 group-hover:scale-[1.04]" />
+                  <span className="relative h-[72px] overflow-hidden rounded-xl bg-[#F4EFE7]">
+                    <Image src={withBasePath(cabin.image)} alt={cabin.name} fill sizes="72px" className="object-cover transition duration-500 group-hover:scale-[1.04]" />
                   </span>
                   <span className="min-w-0">
                     <span className="block truncate text-base font-bold tracking-normal text-[#5C4635]">{cabin.name}</span>
@@ -292,11 +292,11 @@ export function MainPage() {
                 <button
                   type="button"
                   onClick={() => openCabinGallery(activeCabin.id)}
-                  className="group relative block h-[280px] w-full overflow-hidden text-left sm:h-[360px] lg:h-[430px]"
+                  className="group relative block h-[280px] w-full overflow-hidden bg-[#F4EFE7] text-left sm:h-[360px] lg:h-[430px]"
                   aria-label={`Ver fotos de ${activeCabin.name}`}
                 >
-                  <Image src={withBasePath(activeCabin.image)} alt={activeCabin.name} fill className="object-cover transition duration-700 group-hover:scale-[1.03]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/14 to-transparent" />
+                  <Image src={withBasePath(activeCabin.image)} alt={activeCabin.name} fill sizes="(min-width: 1280px) 1216px, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.03]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/58 via-black/8 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
                     <p className="inline-flex items-center gap-2 rounded-full bg-white/16 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-md">
                       <Users size={14} /> {activeCabin.capacity}
@@ -406,7 +406,7 @@ export function MainPage() {
                       className="group relative h-72 w-[82vw] shrink-0 overflow-hidden rounded-2xl border border-[#D9D6CF] bg-[#F4EFE7] shadow-[0_8px_24px_rgba(92,70,53,0.035)] sm:h-96 sm:w-[560px] lg:h-[420px] lg:w-[640px]"
                       aria-label={`Ver foto ${galleryIndex + 1} del establecimiento`}
                     >
-                      <Image src={withBasePath(item.src)} alt={item.title} fill className="object-cover transition duration-700 group-hover:scale-[1.04]" />
+                      <Image src={withBasePath(item.src)} alt={item.title} fill sizes="(min-width: 1024px) 640px, (min-width: 640px) 560px, 82vw" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
                     </button>
                   );
                 })}
@@ -432,8 +432,8 @@ export function MainPage() {
               return (
                 <article key={item.id} className="surface-card group overflow-hidden">
                   {item.image ? (
-                    <div className="relative h-56 sm:h-64">
-                      <Image src={withBasePath(item.image)} alt={item.title} fill className="object-cover transition duration-700 group-hover:scale-[1.03]" />
+                    <div className="relative h-56 bg-[#F4EFE7] sm:h-64">
+                      <Image src={withBasePath(item.image)} alt={item.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.03]" />
                     </div>
                   ) : (
                     <div className="flex h-56 items-center justify-center bg-[#2F5D50] px-6 text-center text-white sm:h-64">
@@ -478,8 +478,8 @@ export function MainPage() {
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {animalItems.map((item) => (
                 <article key={item.title} className="overflow-hidden rounded-2xl border border-white/12 bg-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
-                  <div className="relative h-56 sm:h-72">
-                    <Image src={withBasePath(item.image)} alt={item.title} fill className="object-cover" />
+                  <div className="relative h-56 bg-[#24483E] sm:h-72">
+                    <Image src={withBasePath(item.image)} alt={item.title} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
                   </div>
                   <div className="p-5 sm:p-6">
                     <h3 className="text-2xl font-bold tracking-normal">{item.title}</h3>
@@ -495,7 +495,7 @@ export function MainPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <article className="surface-card grid overflow-hidden lg:grid-cols-[0.95fr_1.05fr]">
               <div className="relative min-h-[260px] lg:min-h-[470px]">
-                <Image src={withBasePath('/images/trailrunning.jpg')} alt="Grand Trail Cerro Blanco en entorno natural" fill className="object-cover" />
+                <Image src={withBasePath('/images/optimized/trailrunning.jpg')} alt="Grand Trail Cerro Blanco en entorno natural" fill sizes="(min-width: 1024px) 48vw, 100vw" className="object-cover" />
               </div>
               <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-12">
                 <p className="inline-flex w-fit items-center gap-2 rounded-xl bg-[#F4EFE7] px-3 py-2 text-xs font-light uppercase tracking-[0.22em] text-[#6F6F6F]">
@@ -632,6 +632,7 @@ export function MainPage() {
                 src={withBasePath(activeCabinGallery.gallery[activeCabinGalleryIndex] ?? activeCabinGallery.image)}
                 alt={`${activeCabinGallery.name} foto ${activeCabinGalleryIndex + 1}`}
                 fill
+                sizes="100vw"
                 className="object-contain"
               />
               <button
@@ -661,7 +662,7 @@ export function MainPage() {
                   className={`relative h-16 w-20 shrink-0 overflow-hidden rounded-xl border sm:h-20 sm:w-28 ${activeCabinGalleryIndex === index ? 'border-[#B86E4B]' : 'border-white/18'}`}
                   aria-label={`Abrir foto ${index + 1} de ${activeCabinGallery.name}`}
                 >
-                  <Image src={withBasePath(src)} alt={`${activeCabinGallery.name} miniatura ${index + 1}`} fill className="object-cover" />
+                  <Image src={withBasePath(src)} alt={`${activeCabinGallery.name} miniatura ${index + 1}`} fill sizes="112px" className="object-contain" />
                 </button>
               ))}
             </div>
@@ -678,7 +679,7 @@ export function MainPage() {
               </button>
             </div>
             <div className="relative h-[66vh] overflow-hidden rounded-2xl bg-white/5 sm:h-[72vh]">
-              <Image src={withBasePath(galleryItems[activeGallery]?.src ?? '/images/real-villa.jpg')} alt={galleryItems[activeGallery]?.title ?? ''} fill className="object-cover" />
+              <Image src={withBasePath(galleryItems[activeGallery]?.src ?? galleryItems[0]?.src ?? '/images/optimized/hero-finca.jpg')} alt={galleryItems[activeGallery]?.title ?? ''} fill sizes="100vw" className="object-contain" />
               <button
                 type="button"
                 onClick={() => setActiveGallery((value) => (value - 1 + galleryItems.length) % galleryItems.length)}

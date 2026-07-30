@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/hero-finca.png',
+        url: '/images/optimized/hero-finca.jpg',
         width: 1200,
         height: 630,
         alt: 'Finca Carranza Sosa rodeada de naturaleza',
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: 'Finca Carranza Sosa | Alojamiento rural',
     description:
       'Alojamiento rural con departamentos equipados, pileta, quincho, asadores y actividades al aire libre.',
-    images: ['/images/hero-finca.png'],
+    images: ['/images/optimized/hero-finca.jpg'],
   },
 };
 
@@ -79,7 +79,7 @@ const structuredData = {
   url: siteUrl,
   description:
     'Alojamiento rural con departamentos equipados, espacios comunes, pileta, quincho, asadores y actividades al aire libre.',
-  image: `${siteUrl}/images/hero-finca.png`,
+  image: `${siteUrl}/images/optimized/hero-finca.jpg`,
   telephone: '+541158883035',
   amenityFeature: [
     { '@type': 'LocationFeatureSpecification', name: 'Departamentos equipados', value: true },
