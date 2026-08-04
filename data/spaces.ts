@@ -19,6 +19,8 @@ export type Space = {
 export const departmentEquipment = [
   'Aire frio/calor',
   'Salamandra',
+  'TV',
+  'WiFi',
   'Tender',
   'Copas de vino',
   'Elementos de cocina',
@@ -31,6 +33,20 @@ export const departmentEquipment = [
   'Secador de pelo',
   'Jabon, shampoo y crema enjuague',
   'Toallas pequenas y grandes',
+];
+
+const lasAcaciasEquipment = [
+  ...departmentEquipment,
+  '3 camas simples: cama simple + cucheta',
+];
+
+const laTranqueraEquipment = [
+  ...departmentEquipment,
+  'Sommier doble + cama simple',
+];
+
+const familyDepartmentEquipment = [
+  ...departmentEquipment,
   'Sommier doble + cama cucheta',
 ];
 
@@ -100,9 +116,9 @@ export const spaces: Space[] = [
     image: lasAcaciasGallery[0],
     gallery: lasAcaciasGallery,
     capacity: 'Hasta 3 personas',
-    services: departmentEquipment,
+    services: lasAcaciasEquipment,
     category: 'Departamento',
-    surface: 'Sommier doble + cucheta',
+    surface: '3 camas simples: cama simple + cucheta',
     recommendedFor: '3 personas',
     accessibility: 'Consultar',
     coverage: 'Equipado',
@@ -118,9 +134,9 @@ export const spaces: Space[] = [
     image: laTranqueraGallery[0],
     gallery: laTranqueraGallery,
     capacity: 'Hasta 3 personas',
-    services: departmentEquipment,
+    services: laTranqueraEquipment,
     category: 'Departamento',
-    surface: 'Sommier doble + cucheta',
+    surface: 'Sommier doble + cama simple',
     recommendedFor: '3 personas',
     accessibility: 'Consultar',
     coverage: 'Equipado',
@@ -136,7 +152,7 @@ export const spaces: Space[] = [
     image: delArroyoGallery[0],
     gallery: delArroyoGallery,
     capacity: 'Hasta 4 personas',
-    services: departmentEquipment,
+    services: familyDepartmentEquipment,
     category: 'Departamento',
     surface: 'Sommier doble + cucheta',
     recommendedFor: '4 personas',
@@ -154,7 +170,7 @@ export const spaces: Space[] = [
     image: delParqueGallery[0],
     gallery: delParqueGallery,
     capacity: 'Hasta 4 personas',
-    services: departmentEquipment,
+    services: familyDepartmentEquipment,
     category: 'Departamento',
     surface: 'Sommier doble + cucheta',
     recommendedFor: '4 personas',

@@ -11,11 +11,11 @@ export const faqs: Faq[] = [
   {
     question: 'Que incluye cada departamento?',
     answer:
-      'Incluyen aire frio/calor, salamandra, cocina equipada, vajilla, microondas, horno electrico, pava electrica, anafe, ropa blanca de uso interno, elementos de higiene y secador de pelo.',
+      'Incluyen aire frio/calor, salamandra, TV, WiFi, cocina equipada, vajilla, microondas, horno electrico, pava electrica, anafe, ropa blanca de uso interno, elementos de higiene y secador de pelo.',
   },
   {
     question: 'Que espacios comunes hay?',
-    answer: 'Los huespedes pueden usar gimnasio, quincho, pileta, parque, asadores, granja ecologica y proximamente huerta ecologica.',
+    answer: 'Los huespedes pueden usar quincho, pileta, parque, asadores, granja ecologica y proximamente huerta ecologica. El gimnasio esta en remodelacion.',
   },
   {
     question: 'Los paseos a caballo estan incluidos?',

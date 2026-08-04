@@ -11,6 +11,7 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Dumbbell,
   ExternalLink,
   Facebook,
@@ -47,9 +48,10 @@ const navItems = [
 
 const siteBasePath = process.env.NEXT_PUBLIC_GITHUB_PAGES === 'true' ? '/fincaDemo' : '';
 const withBasePath = (src: string) => (src.startsWith('/images/') ? `${siteBasePath}${src}` : src);
+const servicePreviewLimit = 8;
 
 const equipmentGroups = [
-  { title: 'Confort', icon: BedDouble, items: ['Aire frio/calor', 'Salamandra', 'Bolsa de agua caliente para cama', 'Sommier doble + cama cucheta'] },
+  { title: 'Confort', icon: BedDouble, items: ['Aire frio/calor', 'Salamandra', 'TV', 'WiFi', 'Bolsa de agua caliente para cama', 'Camas segun departamento'] },
   { title: 'Cocina', icon: Utensils, items: ['Copas de vino', 'Elementos de cocina', 'Vajilla', 'Horno electrico', 'Microondas', 'Pava electrica', 'Anafe electrico'] },
   { title: 'Bano', icon: ShowerHead, items: ['Secador de pelo', 'Jabon', 'Shampoo', 'Crema enjuague', 'Toallas pequenas y grandes'] },
 ];
@@ -90,6 +92,7 @@ export function MainPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeCabinGalleryId, setActiveCabinGalleryId] = useState<string | null>(null);
   const [activeCabinGalleryIndex, setActiveCabinGalleryIndex] = useState(0);
+  const [servicesExpanded, setServicesExpanded] = useState(false);
 
   useEffect(() => {
     const updateHeader = () => setScrolled(window.scrollY > 24);
@@ -118,6 +121,10 @@ export function MainPage() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    setServicesExpanded(false);
+  }, [activeCabinId]);
+
   const activeCabin = useMemo(
     () => spaces.find((space) => space.id === activeCabinId) ?? spaces[0],
     [activeCabinId],
@@ -126,6 +133,12 @@ export function MainPage() {
     () => spaces.find((space) => space.id === activeCabinGalleryId) ?? null,
     [activeCabinGalleryId],
   );
+  const visibleCabinServices = activeCabin
+    ? servicesExpanded
+      ? activeCabin.services
+      : activeCabin.services.slice(0, servicePreviewLimit)
+    : [];
+  const hiddenServicesCount = activeCabin ? activeCabin.services.length - visibleCabinServices.length : 0;
 
   const openCabinGallery = (cabinId: string, index = 0) => {
     setActiveCabinGalleryId(cabinId);
@@ -339,12 +352,23 @@ export function MainPage() {
                   <div>
                     <p className="text-xs font-light uppercase tracking-[0.22em] text-[#6F6F6F]">Incluye</p>
                     <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                      {activeCabin.services.slice(0, 10).map((item) => (
+                      {visibleCabinServices.map((item) => (
                         <p key={item} className="flex items-start gap-2 rounded-xl bg-white px-3 py-2 text-sm font-normal leading-6 text-[#6F6F6F]">
                           <Check className="mt-1 shrink-0 text-[#2F5D50]" size={16} /> {item}
                         </p>
                       ))}
                     </div>
+                    {activeCabin.services.length > servicePreviewLimit ? (
+                      <button
+                        type="button"
+                        onClick={() => setServicesExpanded((value) => !value)}
+                        className="mt-4 inline-flex items-center gap-2 rounded-xl border border-[#D9D6CF] bg-white px-4 py-2.5 text-sm font-bold text-[#2F5D50] transition hover:border-[#2F5D50]/40 hover:bg-[#F4EFE7]"
+                        aria-expanded={servicesExpanded}
+                      >
+                        {servicesExpanded ? 'Ver menos' : `Ver mas${hiddenServicesCount > 0 ? ` (${hiddenServicesCount})` : ''}`}
+                        <ChevronDown className={`transition ${servicesExpanded ? 'rotate-180' : ''}`} size={16} />
+                      </button>
+                    ) : null}
                   </div>
                 </div>
               </article>
@@ -429,9 +453,27 @@ export function MainPage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[...experiences, ...commonAreas].map((item) => {
               const Icon = areaIcons[item.id] ?? Leaf;
+              const statusImageCard = item.id === 'gimnasio' || item.id === 'huerta';
+              const statusLabel = item.id === 'gimnasio' ? 'Gimnasio' : 'Huerta ecologica';
+              const statusText = item.id === 'gimnasio' ? 'En remodelacion' : 'En proceso';
               return (
                 <article key={item.id} className="surface-card group overflow-hidden">
-                  {item.image ? (
+                  {statusImageCard && item.image ? (
+                    <div className="relative flex h-56 items-center justify-center overflow-hidden bg-[#2F5D50] px-6 text-center text-white sm:h-64">
+                      <Image
+                        src={withBasePath(item.image)}
+                        alt={item.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="scale-105 object-cover blur-[3px] transition duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-[#2F5D50]/58" />
+                      <div className="relative z-10">
+                        <p className="text-xs font-light uppercase tracking-[0.28em] text-white/72">{statusLabel}</p>
+                        <p className="mt-3 text-4xl font-bold tracking-normal">{statusText}</p>
+                      </div>
+                    </div>
+                  ) : item.image ? (
                     <div className="relative h-56 bg-[#F4EFE7] sm:h-64">
                       <Image src={withBasePath(item.image)} alt={item.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.03]" />
                     </div>

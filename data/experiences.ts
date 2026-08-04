@@ -10,8 +10,9 @@ export const commonAreas: Experience[] = [
   {
     id: 'gimnasio',
     title: 'Gimnasio',
-    description: 'Espacio comun para entrenar durante la estadia.',
-    image: '/images/optimized/sobrefinca.jpg',
+    description: 'Espacio comun para entrenar durante la estadia. Actualmente esta en remodelacion.',
+    image: '/images/optimized/gimnasio-remodelacion.jpg',
+    note: 'En remodelacion.',
   },
   {
     id: 'quincho',
@@ -47,6 +48,7 @@ export const commonAreas: Experience[] = [
     id: 'huerta',
     title: 'Huerta ecologica',
     description: 'Un espacio natural que esta en proceso para sumar nuevas experiencias a la finca.',
+    image: '/images/optimized/huerta-en-proceso.jpg',
     note: 'En proceso.',
   },
 ];
